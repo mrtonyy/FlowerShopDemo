@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px;
+      align-items: start;
+    }
+
+    /* Cart table */
+    .cart-table { width: 100%; border-collapse: collapse; }
+    .cart-table th {
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8A8A8A;
+      padding: 0 12px 12px;
+      border-bottom: 2px solid #E5E0D8;
+    }
+    .cart-table th.col-price,
+    .cart-table th.col-subtotal { text-align: right; }
+    .cart-row td {
+      padding: 20px 12px;
+      border-bottom: 1px solid #E5E0D8;
+      vertical-align: middle;
+    }
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #E5E0D8;
+    }
+    .cart-item-info { margin-left: 14px; }
+    .cart-item-name {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      color: #2C2C2C;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .cart-item-size {
+      font-size: 0.78rem;
+      color: #8A8A8A;
+    }
+    .cart-item-flex { display: flex; align-items: center; }
+    .cart-price, .cart-subtotal { text-align: right; font-size: 0.95rem; }
+    .cart-subtotal { font-weight: 600; }
+
+    /* Qty controls */
+    .qty-cell { text-align: center; }
+    .cart-qty-wrap {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #E5E0D8;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .cart-qty-btn {
+      width: 30px; height: 30px;
+      border: none;
+      background: #f5f1ec;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .cart-qty-btn:hover { background: #E5E0D8; }
+    .cart-qty-num {
+      width: 36px;
+      height: 30px;
+      text-align: center;
+      border: none;
+      border-left: 1px solid #E5E0D8;
+      border-right: 1px solid #E5E0D8;
+      font-size: 0.85rem;
+      outline: none;
+      background: #fff;
+    }
+    .remove-link {
+      font-size: 0.78rem;
+      color: #C9848C;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      margin-top: 6px;
+      text-decoration: underline;
+    }
+    .remove-link:hover { color: #b87078; }
+
+    /* Summary */
+    .order-summary {
+      background: #fff;
+      border: 1px solid #E5E0D8;
+      border-radius: 10px;
+      padding: 28px;
+      position: sticky;
+      top: 80px;
+    }
+    .order-summary h2 {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #E5E0D8;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 8px 0;
+      color: #5A5A5A;
+    }
+    .summary-row.total {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #2C2C2C;
+      border-top: 2px solid #E5E0D8;
+      margin-top: 8px;
+      padding-top: 14px;
+    }
+    .checkout-btn {
+      width: 100%;
+      padding: 15px;
+      background: #8B5E8B;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover { background: #7a507a; }
+    .continue-shopping {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: #6B8F71;
+      text-decoration: underline;
+    }
+
+    /* Empty state */
+    .empty-cart {
+      text-align: center;
+      padding: 80px 40px;
+      grid-column: 1 / -1;
+    }
+    .empty-cart .big-icon { font-size: 5rem; margin-bottom: 20px; }
+    .empty-cart h2 { font-family: Georgia, serif; font-size: 1.8rem; margin-bottom: 12px; }
+    .empty-cart p { color: #5A5A5A; margin-bottom: 28px; }
+
+    @media (max-width: 768px) {
+      .cart-layout { grid-template-columns: 1fr; padding: 24px 16px; }
+      .order-summary { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>&#128205; 20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+      <a href="tel:4082523560">&#128222; (408) 252-3560</a>
+    </div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">&#128269;</button>
+      </form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link">
+        &#128722; Cart
+        <span class="cart-badge cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html">Occasion <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=any-occasion">Any Occasion</a>
+            <a href="products.html?category=birthday">Birthday</a>
+            <a href="products.html?category=anniversary">Anniversary</a>
+            <a href="products.html?category=love-romance">Love &amp; Romance</a>
+            <a href="products.html?category=new-baby">New Baby</a>
+            <a href="products.html?category=sympathy">Sympathy</a>
+            <a href="products.html?category=get-well">Get Well</a>
+            <a href="products.html?category=congratulations">Congratulations</a>
+            <a href="products.html?category=thank-you">Thank You</a>
+            <a href="products.html?category=just-because">Just Because</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="products.html">Products <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=casket-sprays">Casket Sprays</a>
+            <a href="products.html?category=gifts">Gifts</a>
+            <a href="products.html?category=plants">Plants</a>
+            <a href="products.html?category=roses">Roses</a>
+            <a href="products.html?category=standing-sprays">Standing Sprays</a>
+            <a href="products.html?category=tropicals">Tropicals</a>
+            <a href="products.html?category=wreaths-hearts-crosses">Wreaths Hearts Crosses</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item">
+          <a href="about.html">Our Company <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="more-info.html">More Information</a>
+            <a href="join-email.html">Join Email List</a>
+          </div>
+        </li>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span>&#8250;</span>
+    <span>Shopping Cart</span>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>&#128722; Shopping Cart</h1>
+      <p>Review your selections before checkout.</p>
+    </div>
+  </div>
+
+  <!-- CART CONTENT -->
+  <div class="cart-layout" id="cart-layout">
+    <!-- Populated by JS -->
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cupertino <span>Florist</span></div>
+        <p>Family-owned floral shop serving Cupertino and the South Bay since 1982. Fresh flowers, hand-delivered with care.</p>
+        <a href="tel:4082523560" class="footer-phone">(408) 252-3560</a>
+        <p style="font-size:0.78rem;margin-top:10px;color:#666;">20530 Stevens Creek Blvd, Cupertino, CA 95014</p>
+      </div>
+      <div class="footer-col">
+        <h4>By Occasion</h4>
+        <ul>
+          <li><a href="products.html?category=birthday">Birthday</a></li>
+          <li><a href="products.html?category=anniversary">Anniversary</a></li>
+          <li><a href="products.html?category=love-romance">Love &amp; Romance</a></li>
+          <li><a href="products.html?category=sympathy">Sympathy</a></li>
+          <li><a href="products.html?category=get-well">Get Well</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html?category=roses">Roses</a></li>
+          <li><a href="products.html?category=plants">Plants</a></li>
+          <li><a href="products.html?category=gifts">Gifts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cupertino Florist. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    const DELIVERY_FEE = 15;
+
+    function renderCart() {
+      const cart = getCart();
+      const layout = document.getElementById('cart-layout');
+
+      if (cart.length === 0) {
+        layout.innerHTML = `
+          <div class="empty-cart">
+            <div class="big-icon">&#127801;</div>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any flowers yet. Let's fix that!</p>
+            <a href="products.html" class="btn btn-sage btn-lg">Shop All Arrangements</a>
+          </div>`;
+        return;
+      }
+
+      const subtotal = getCartTotal();
+      const total    = subtotal + DELIVERY_FEE;
+
+      const tableRows = cart.map((item, idx) => `
+        <tr class="cart-row">
+          <td>
+            <div class="cart-item-flex">
+              <img class="cart-item-img" src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23e8f0e9%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2232%22%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E'">
+              <div class="cart-item-info">
+                <span class="cart-item-name">${item.name}</span>
+                <span class="cart-item-size">${item.sizeLabel} · ${item.delivery}</span>
+              </div>
+            </div>
+          </td>
+          <td class="cart-price">$${item.price.toFixed(2)}</td>
+          <td class="qty-cell">
+            <div class="cart-qty-wrap">
+              <button class="cart-qty-btn" onclick="adjustQty('${item.productId}','${item.size}',-1)">&#8722;</button>
+              <input class="cart-qty-num" type="number" value="${item.qty}" min="1" readonly>
+              <button class="cart-qty-btn" onclick="adjustQty('${item.productId}','${item.size}',1)">&#43;</button>
+            </div>
+            <span class="remove-link" onclick="removeItem('${item.productId}','${item.size}')">Remove</span>
+          </td>
+          <td class="cart-subtotal">$${(item.price * item.qty).toFixed(2)}</td>
+        </tr>`).join('');
+
+      layout.innerHTML = `
+        <div class="cart-main">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Arrangement</th>
+                <th class="col-price">Price</th>
+                <th style="text-align:center">Qty</th>
+                <th class="col-subtotal">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>${tableRows}</tbody>
+          </table>
+          <div style="margin-top:20px;">
+            <a href="products.html" class="btn btn-outline-sage btn-sm">&#8592; Continue Shopping</a>
+          </div>
+        </div>
+        <div>
+          <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-row"><span>Subtotal (${getCartCount()} item${getCartCount() !== 1 ? 's' : ''})</span><span>$${subtotal.toFixed(2)}</span></div>
+            <div class="summary-row"><span>Delivery fee</span><span>$${DELIVERY_FEE.toFixed(2)}</span></div>
+            <div class="summary-row total"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+            <button class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout &#8594;</button>
+            <a href="products.html" class="continue-shopping">&#8592; Continue Shopping</a>
+          </div>
+        </div>`;
+    }
+
+    window.adjustQty = function(productId, size, delta) {
+      const cart = getCart();
+      const item = cart.find(i => i.productId === productId && i.size === size);
+      if (!item) return;
+      updateQty(productId, size, item.qty + delta);
+      renderCart();
+    };
+
+    window.removeItem = function(productId, size) {
+      removeFromCart(productId, size);
+      renderCart();
+    };
+
+    renderCart();
+  </script>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <span class="logo">Cupertino <span>Florist</span></span>
+      <button class="mobile-nav-close" id="mobileClose">&#10005;</button>
+    </div>
+    <div class="mobile-nav-search">
+      <form action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a>
+      <a href="products.html?category=anniversary" class="sub">Anniversary</a>
+      <a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a>
+      <a href="products.html?category=new-baby" class="sub">New Baby</a>
+      <a href="products.html?category=sympathy" class="sub">Sympathy</a>
+      <a href="products.html?category=get-well" class="sub">Get Well</a>
+      <a href="products.html?category=congratulations" class="sub">Congratulations</a>
+      <a href="products.html?category=thank-you" class="sub">Thank You</a>
+      <a href="products.html?category=just-because" class="sub">Just Because</a>
+      <div class="group-label">Products</div>
+      <a href="products.html?category=roses" class="sub">Roses</a>
+      <a href="products.html?category=plants" class="sub">Plants</a>
+      <a href="products.html?category=tropicals" class="sub">Tropicals</a>
+      <a href="products.html?category=gifts" class="sub">Gifts</a>
+      <a href="products.html?category=sympathy-flowers" class="sub">Sympathy Flowers</a>
+      <a href="products.html?category=casket-sprays" class="sub">Casket Sprays</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a>
+      <a href="contact.html" class="sub">Contact Us</a>
+      <a href="delivery.html" class="sub">Delivery Info</a>
+      <a href="faq.html" class="sub">FAQ</a>
+      <a href="join-email.html" class="sub">Join Email List</a>
+      <a href="more-info.html" class="sub">More Info</a>
+      <a href="signin.html">Sign In</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <a href="tel:4082523560">(408) 252-3560</a>
+      <span>20530 Stevens Creek Blvd, Cupertino</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+  </script>
+</body>
+</html>

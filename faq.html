@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .content-wrap { max-width: 780px; margin: 0 auto; padding: 48px 20px 60px; }
+    .faq-intro { font-family: Georgia, serif; font-size: 2rem; font-weight: normal; color: #2C2C2C; margin-bottom: 8px; }
+    .faq-intro em { color: #C9848C; font-style: italic; }
+    .faq-sub { color: #8A8A8A; font-size: 15px; margin-bottom: 36px; }
+    .acc-item { background: white; border: 1px solid #E5E0D8; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .acc-btn { width: 100%; background: none; border: none; padding: 18px 22px; text-align: left; font-size: 15px; font-weight: 600; color: #2C2C2C; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .15s; }
+    .acc-btn:hover { background: #FAF8F4; }
+    .acc-btn.open { color: #6B8F71; background: #FAF8F4; }
+    .acc-btn .ch { font-size: 18px; transition: transform .25s; flex-shrink: 0; color: #8A8A8A; }
+    .acc-btn.open .ch { transform: rotate(45deg); color: #6B8F71; }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .acc-body.open { max-height: 400px; }
+    .acc-body-inner { padding: 0 22px 18px; font-size: 14px; color: #5A5A5A; line-height: 1.8; border-top: 1px solid #E5E0D8; padding-top: 16px; }
+    .acc-body-inner a { color: #6B8F71; font-weight: 600; }
+    .cta-box { background: linear-gradient(135deg, #e8f0ea, #fdf9f4); border: 1px solid #d5e8d7; border-radius: 12px; padding: 32px; text-align: center; margin-top: 40px; }
+    .cta-box h3 { font-family: Georgia, serif; font-size: 1.4rem; font-weight: normal; margin-bottom: 10px; }
+    .cta-box p { color: #5A5A5A; font-size: 15px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">&#128269;</button></form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Occasion <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=birthday">Birthday</a><a href="products.html?category=love-romance">Love &amp; Romance</a><a href="products.html?category=sympathy">Sympathy</a><a href="products.html?category=get-well">Get Well</a></div></li>
+        <li class="nav-item"><a href="products.html">Products <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=roses">Roses</a><a href="products.html?category=plants">Plants</a><a href="products.html?category=gifts">Gifts</a></div></li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item"><a href="about.html" class="active">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb" style="padding:14px 40px;background:white;border-bottom:1px solid #E5E0D8;font-size:12px;color:#8A8A8A">
+    <a href="index.html" style="color:#8A8A8A;text-decoration:none">Home</a> <span>›</span> <a href="about.html" style="color:#8A8A8A;text-decoration:none">Our Company</a> <span>›</span> FAQ
+  </div>
+
+  <div class="content-wrap">
+    <h1 class="faq-intro">Frequently Asked <em>Questions</em></h1>
+    <p class="faq-sub">Everything you need to know about ordering flowers from Cupertino Florist.</p>
+
+    <div id="faqList">
+      <div class="acc-item">
+        <button class="acc-btn">How do I place an order? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">You can order online 24/7 through our website, or call us directly at <a href="tel:4082523560">(408) 252-3560</a> during business hours (Monday–Saturday, 9am–6pm). Browse our arrangements by occasion or product type, select your size, and add to cart. Checkout takes just a few minutes.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">What areas do you deliver to? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We deliver throughout Silicon Valley including Cupertino, San Jose, Santa Clara, Sunnyvale, Mountain View, Los Altos, Palo Alto, Saratoga, Los Gatos, Campbell, Milpitas, and more. See our full <a href="delivery.html">delivery areas page</a> for the complete list of cities and zip codes.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Can I get same-day delivery? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Yes! We offer same-day delivery Monday through Saturday. Place your order by 2:00 PM (Monday–Friday) or 12:00 PM (Saturday) for same-day delivery. For peak holidays like Valentine's Day and Mother's Day, we recommend ordering 2–3 days in advance.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">What if I need to cancel or change my order? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Please call us as soon as possible at <a href="tel:4082523560">(408) 252-3560</a>. We'll do our best to accommodate changes or cancellations if your arrangement hasn't already been prepared. We cannot guarantee changes for same-day orders placed close to our cut-off time.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Do you deliver to hospitals and funeral homes? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Yes. We regularly deliver to hospitals including El Camino, Good Samaritan, Kaiser Permanente, Lucile Packard Children's, O'Connor, and others throughout the South Bay. We also deliver to funeral homes and cemeteries. Please call us to confirm delivery arrangements for specific facilities.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">What payment methods do you accept? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We accept all major credit cards (Visa, Mastercard, American Express, Discover) for online orders. Phone orders may also be paid by credit card. We accept cash and checks for in-store purchases.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">How fresh are your flowers? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We source our flowers fresh daily, both locally and from growers worldwide. Our exotic and specialty flowers are flown in overnight to ensure peak freshness. Every arrangement is made fresh to order by our skilled florists.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Can I request a custom arrangement? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Absolutely! We love creating custom arrangements for weddings, corporate events, and special occasions. Call us at <a href="tel:4082523560">(408) 252-3560</a> or use our <a href="contact.html">contact form</a> to discuss your vision. We offer traditional, high-style, and exotic design styles.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">What if no one is home when the flowers are delivered? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Our drivers will attempt to leave the flowers in a safe, shaded location or with a neighbor. We'll note the arrangement details on a door hanger. For temperature-sensitive flowers or if there's no safe place to leave them, we may contact you to reschedule. Providing a delivery phone number during checkout helps ensure successful delivery.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Do you offer a guarantee on your flowers? <span class="ch">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">We stand behind the quality of every arrangement we create. If you're not completely satisfied, please contact us within 24 hours of delivery and we'll make it right — either by replacing the arrangement or providing a refund. Your satisfaction is our priority.</div></div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Still have questions?</h3>
+      <p>Our friendly team is here to help Monday through Saturday, 9am–6pm.</p>
+      <a href="tel:4082523560" class="btn-primary" style="margin-right:12px">&#128222; Call Us</a>
+      <a href="contact.html" class="btn-outline">Send a Message</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a><a href="products.html">Shop All</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a><a href="contact.html" class="sub">Contact Us</a><a href="delivery.html" class="sub">Delivery Info</a><a href="faq.html" class="sub" style="color:#6B8F71;font-weight:700">FAQ</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a><span>7289 Coronado Dr, San Jose, CA</span></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);})();
+    // Accordion
+    document.querySelectorAll('.acc-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var body = this.nextElementSibling;
+        var isOpen = body.classList.contains('open');
+        document.querySelectorAll('.acc-body').forEach(function(b){b.classList.remove('open');});
+        document.querySelectorAll('.acc-btn').forEach(function(b){b.classList.remove('open');});
+        if (!isOpen) { body.classList.add('open'); this.classList.add('open'); }
+      });
+    });
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned floral shop serving the Silicon Valley since the 1980s.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=roses">Roses</a></li><li><a href="products.html?category=plants">Plants</a></li></ul></div>
+      <div class="footer-col"><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="delivery.html">Delivery Info</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="join-email.html">Email List</a></li><li><a href="signin.html">Sign In</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span></div>
+  </footer>
+</body>
+</html>

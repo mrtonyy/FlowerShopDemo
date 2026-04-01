@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <script src="js/cart.js" defer></script>
+  <style>
+    .confirm-banner { background: linear-gradient(135deg, #6B8F71, #5a7860); color: white; text-align: center; padding: 48px 20px; }
+    .confirm-banner .check { font-size: 56px; margin-bottom: 12px; }
+    .confirm-banner h1 { font-family: Georgia, serif; font-size: 2rem; font-weight: normal; margin-bottom: 8px; }
+    .confirm-banner p { font-size: 1rem; opacity: .85; }
+    .invoice-wrap { max-width: 720px; margin: 0 auto; padding: 36px 20px 60px; }
+    .invoice-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+    .invoice-card-header { background: #FAF8F4; border-bottom: 1px solid #E5E0D8; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .invoice-card-header strong { font-size: 13px; color: #5A5A5A; text-transform: uppercase; letter-spacing: 1px; }
+    .invoice-card-header span { font-size: 14px; color: #2C2C2C; font-weight: 600; }
+    .invoice-card-body { padding: 20px 24px; }
+    .invoice-table { width: 100%; border-collapse: collapse; }
+    .invoice-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; padding: 8px 0; border-bottom: 2px solid #E5E0D8; }
+    .invoice-table td { padding: 14px 0; border-bottom: 1px solid #E5E0D8; font-size: 14px; vertical-align: middle; }
+    .invoice-table tr:last-child td { border-bottom: none; }
+    .inv-product { display: flex; gap: 12px; align-items: center; }
+    .inv-product img { width: 52px; height: 52px; object-fit: cover; border-radius: 4px; border: 1px solid #E5E0D8; }
+    .inv-product-info strong { display: block; font-size: 14px; color: #2C2C2C; }
+    .inv-product-info span { font-size: 12px; color: #8A8A8A; }
+    .totals-table { width: 100%; }
+    .totals-table td { padding: 8px 0; font-size: 14px; }
+    .totals-table td:last-child { text-align: right; font-weight: 600; }
+    .totals-table .total-row td { font-size: 18px; font-family: Georgia, serif; border-top: 2px solid #E5E0D8; padding-top: 14px; color: #6B8F71; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .info-item strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; margin-bottom: 6px; }
+    .info-item span { font-size: 14px; color: #2C2C2C; line-height: 1.6; }
+    .actions { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+    @media (max-width: 600px) {
+      .invoice-card-header { flex-direction: column; align-items: flex-start; }
+      .info-grid { grid-template-columns: 1fr; }
+      .invoice-table th:nth-child(3), .invoice-table td:nth-child(3) { display: none; }
+    }
+    @media print {
+      .confirm-banner, .actions, .topbar, nav, footer { display: none !important; }
+      .invoice-wrap { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span>
+      <a href="tel:4082523560">&#128222; (408) 252-3560</a>
+    </div>
+    <div class="topbar-right">
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Shop</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="confirm-banner">
+    <div class="check">✅</div>
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for choosing Cupertino Florist. Your order is on its way.</p>
+  </div>
+
+  <div class="invoice-wrap" id="invoiceWrap">
+    <!-- Filled by JS -->
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="icon">📋</div>
+      <h2>No order found</h2>
+      <p>It looks like you navigated here directly.</p>
+      <a href="products.html" class="btn-primary">Shop Arrangements</a>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <span class="logo">Cupertino <span>Florist</span></span>
+      <button class="mobile-nav-close" id="mobileClose">&#10005;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop All</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <a href="tel:4082523560">(408) 252-3560</a>
+      <span>7289 Coronado Dr, San Jose, CA</span>
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+
+    // Render invoice from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      var raw = localStorage.getItem('cf_last_order');
+      var wrap = document.getElementById('invoiceWrap');
+      if (!raw) { document.getElementById('emptyState').style.display='block'; return; }
+      var order = JSON.parse(raw);
+      var itemsHtml = order.items.map(function(item) {
+        return '<tr>' +
+          '<td><div class="inv-product"><img src="' + item.img + '" onerror="this.style.display=\'none\'"><div class="inv-product-info"><strong>' + item.name + '</strong><span>Size: ' + item.size.toUpperCase() + '</span></div></div></td>' +
+          '<td>' + item.qty + '</td>' +
+          '<td>$' + (item.price * item.qty).toFixed(2) + '</td>' +
+          '</tr>';
+      }).join('');
+      var delivery = 15.00;
+      var total = order.total + delivery;
+      wrap.innerHTML = '<div class="invoice-card"><div class="invoice-card-header"><strong>Order Number</strong><span>#' + order.number + '</span><strong>Date</strong><span>' + order.date + '</span><strong>Est. Delivery</strong><span>' + order.deliveryDate + '</span></div></div>' +
+        '<div class="invoice-card"><div class="invoice-card-header"><strong>Items Ordered</strong></div><div class="invoice-card-body"><table class="invoice-table"><thead><tr><th>Product</th><th>Qty</th><th>Subtotal</th></tr></thead><tbody>' + itemsHtml + '</tbody></table></div></div>' +
+        '<div class="invoice-card"><div class="invoice-card-header"><strong>Order Total</strong></div><div class="invoice-card-body"><table class="totals-table"><tr><td>Subtotal</td><td>$' + order.total.toFixed(2) + '</td></tr><tr><td>Delivery</td><td>$' + delivery.toFixed(2) + '</td></tr><tr class="total-row"><td>Total</td><td>$' + total.toFixed(2) + '</td></tr></table></div></div>' +
+        '<div class="invoice-card"><div class="invoice-card-header"><strong>Delivery Details</strong></div><div class="invoice-card-body"><div class="info-grid"><div class="info-item"><strong>Recipient</strong><span>' + order.recipient.name + '<br>' + order.recipient.address + '<br>' + order.recipient.city + ', ' + order.recipient.state + ' ' + order.recipient.zip + '</span></div><div class="info-item"><strong>Card Message</strong><span>' + (order.message || '(none)') + '</span></div></div></div></div>' +
+        '<div class="actions"><a href="products.html" class="btn-primary">Continue Shopping</a><button onclick="window.print()" class="btn-outline">&#128424; Print Invoice</button></div>' +
+        '<p style="text-align:center;color:#8A8A8A;font-size:13px;margin-top:24px;">Questions? Call us at <a href="tel:4082523560" style="color:#6B8F71">(408) 252-3560</a> or visit us at 7289 Coronado Dr, San Jose, CA</p>';
+    });
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cupertino <span>Florist</span></div>
+        <p>Family-owned floral shop serving the Silicon Valley since the 1980s.</p>
+        <a href="tel:4082523560" class="footer-phone">(408) 252-3560</a>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul>
+        <li><a href="products.html?category=birthday">Birthday</a></li>
+        <li><a href="products.html?category=love-romance">Love &amp; Romance</a></li>
+        <li><a href="products.html?category=sympathy">Sympathy</a></li>
+        <li><a href="products.html?category=roses">Roses</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="delivery.html">Delivery Info</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Hours</h4>
+        <p style="font-size:13px;color:#bbb;line-height:1.8">Mon–Sat: 9am–6pm<br>Sunday: Closed</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span><span><a href="more-info.html">Privacy</a></span></div>
+  </footer>
+</body>
+</html>

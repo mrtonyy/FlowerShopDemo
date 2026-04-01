@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupertino Florist — Beautiful Flowers for Every Moment</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #2c3a2e 0%, #4a6b4f 50%, #6B8F71 100%);
+      color: #fff;
+      padding: 96px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 3.2rem;
+      font-weight: normal;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .hero h1 em { color: #C9848C; font-style: italic; }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Occasions strip ── */
+    .occasions-section {
+      background: #fff;
+      padding: 40px 40px;
+      border-bottom: 1px solid #E5E0D8;
+    }
+    .occasions-title {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      color: #8A8A8A;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .occasion-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .occasion-pill {
+      display: inline-block;
+      padding: 8px 20px;
+      border: 1px solid #E5E0D8;
+      border-radius: 40px;
+      font-size: 0.82rem;
+      color: #5A5A5A;
+      background: #FAF8F4;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .occasion-pill:hover {
+      background: #6B8F71;
+      color: #fff;
+      border-color: #6B8F71;
+    }
+
+    /* ── Featured ── */
+    .featured-section { padding: 64px 40px; }
+    .section-header { margin-bottom: 36px; }
+    .section-header .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6B8F71;
+      margin-bottom: 8px;
+    }
+
+    /* ── Why Us ── */
+    .why-section {
+      background: linear-gradient(135deg, #4a6b4f 0%, #6B8F71 100%);
+      padding: 56px 40px;
+    }
+    .why-card {
+      text-align: center;
+      color: #fff;
+      padding: 24px 16px;
+    }
+    .why-icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .why-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+    /* ── About ── */
+    .about-section { padding: 72px 40px; background: #fff; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .about-text .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: #6B8F71; margin-bottom: 12px; }
+    .about-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
+    .about-text p { color: #5A5A5A; line-height: 1.8; margin-bottom: 16px; }
+    .about-stats { display: flex; gap: 32px; margin-top: 28px; }
+    .stat { text-align: center; }
+    .stat-number { font-family: Georgia, serif; font-size: 2rem; color: #6B8F71; }
+    .stat-label { font-size: 0.78rem; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.08em; }
+    .about-img-placeholder {
+      background: linear-gradient(135deg, #e8f0e9 0%, #d4e6d6 100%);
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .about-img-placeholder .flower-big { font-size: 5rem; }
+    .about-img-placeholder p { color: #6B8F71; font-size: 0.9rem; }
+
+    /* ── Delivery/Hours ── */
+    .info-section { padding: 56px 40px; background: #FAF8F4; }
+    .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 900px; margin: 0 auto; }
+    .info-card {
+      background: #fff;
+      border: 1px solid #E5E0D8;
+      border-radius: 10px;
+      padding: 32px;
+    }
+    .info-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E5E0D8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hours-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0ebe4; font-size: 0.88rem; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: #5A5A5A; }
+    .hours-row .time { color: #2C2C2C; font-weight: 500; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 64px 20px; }
+      .hero h1 { font-size: 2.2rem; }
+      .occasions-section { padding: 32px 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-img-placeholder { display: none; }
+      .info-cards { grid-template-columns: 1fr; }
+      .about-stats { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>&#128205; 20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+      <a href="tel:4082523560">&#128222; (408) 252-3560</a>
+    </div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">&#128269;</button>
+      </form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link">
+        &#128722; Cart
+        <span class="cart-badge cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html">Occasion <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=any-occasion">Any Occasion</a>
+            <a href="products.html?category=birthday">Birthday</a>
+            <a href="products.html?category=anniversary">Anniversary</a>
+            <a href="products.html?category=love-romance">Love &amp; Romance</a>
+            <a href="products.html?category=new-baby">New Baby</a>
+            <a href="products.html?category=sympathy">Sympathy</a>
+            <a href="products.html?category=get-well">Get Well</a>
+            <a href="products.html?category=congratulations">Congratulations</a>
+            <a href="products.html?category=thank-you">Thank You</a>
+            <a href="products.html?category=just-because">Just Because</a>
+            <a href="products.html?category=for-him">For Him</a>
+            <a href="products.html?category=patriotic">Patriotic</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="products.html">Products <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=casket-sprays">Casket Sprays</a>
+            <a href="products.html?category=gifts">Gifts</a>
+            <a href="products.html?category=plants">Plants</a>
+            <a href="products.html?category=roses">Roses</a>
+            <a href="products.html?category=standing-sprays">Standing Sprays</a>
+            <a href="products.html?category=sympathy-flowers">Sympathy Flowers</a>
+            <a href="products.html?category=tropicals">Tropicals</a>
+            <a href="products.html?category=wreaths-hearts-crosses">Wreaths Hearts Crosses</a>
+            <a href="products.html?category=sympathy-vases">Sympathy Vases</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item">
+          <a href="about.html">Our Company <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="more-info.html">More Information</a>
+            <a href="join-email.html">Join Email List</a>
+            <a href="more-info.html#refer">Refer a Friend</a>
+          </div>
+        </li>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Beautiful flowers for <em>every moment</em></h1>
+      <p>Serving the Silicon Valley with hand-crafted floral arrangements for over 40 years. Same-day delivery available throughout the South Bay.</p>
+      <div class="hero-ctas">
+        <a href="products.html" class="btn btn-rose btn-lg">Shop All Arrangements</a>
+        <a href="products.html#occasions" class="btn btn-outline-sage btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.6);">Browse by Occasion</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP BY OCCASION -->
+  <section class="occasions-section">
+    <p class="occasions-title">Shop by Occasion</p>
+    <div class="occasion-pills">
+      <a href="products.html?category=birthday" class="occasion-pill">&#127874; Birthday</a>
+      <a href="products.html?category=anniversary" class="occasion-pill">&#128149; Anniversary</a>
+      <a href="products.html?category=love-romance" class="occasion-pill">&#128150; Love &amp; Romance</a>
+      <a href="products.html?category=new-baby" class="occasion-pill">&#128119; New Baby</a>
+      <a href="products.html?category=sympathy" class="occasion-pill">&#129707; Sympathy</a>
+      <a href="products.html?category=get-well" class="occasion-pill">&#127808; Get Well</a>
+      <a href="products.html?category=congratulations" class="occasion-pill">&#127881; Congratulations</a>
+      <a href="products.html?category=thank-you" class="occasion-pill">&#128140; Thank You</a>
+      <a href="products.html?category=just-because" class="occasion-pill">&#127801; Just Because</a>
+      <a href="products.html?category=plants" class="occasion-pill">&#127807; Plants</a>
+      <a href="products.html?category=roses" class="occasion-pill">&#127825; Roses</a>
+      <a href="products.html?category=gifts" class="occasion-pill">&#127873; Gifts</a>
+    </div>
+  </section>
+
+  <!-- FEATURED ARRANGEMENTS -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">Handpicked for you</div>
+        <h2 class="section-title">Featured Arrangements</h2>
+        <p class="section-subtitle">Our most-loved flowers, crafted fresh daily by our expert designers.</p>
+      </div>
+      <div class="grid-4" id="featured-grid">
+        <!-- Populated by JS -->
+      </div>
+      <div class="text-center mt-32">
+        <a href="products.html" class="btn btn-outline-sage">View All Arrangements</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-section">
+    <div class="container">
+      <div class="grid-4">
+        <div class="why-card">
+          <span class="why-icon">&#127801;</span>
+          <h3>Fresh Daily</h3>
+          <p>Every arrangement is crafted the day of delivery using the freshest blooms from our suppliers.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">&#128666;</span>
+          <h3>Same-Day Delivery</h3>
+          <p>Order by noon for same-day delivery throughout Cupertino and the surrounding South Bay.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">&#127968;</span>
+          <h3>Family Owned</h3>
+          <p>Proudly family-owned and operated for over 40 years — you're supporting a local business.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">&#10024;</span>
+          <h3>Custom Designs</h3>
+          <p>Have something special in mind? Call us — we love creating one-of-a-kind custom arrangements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="label">Our Story</div>
+        <h2 class="section-title">Rooted in the heart of Silicon Valley</h2>
+        <p>Since 1982, Cupertino Florist has been creating beautiful, meaningful floral arrangements for families, businesses, and celebrations throughout the South Bay. We are a family-owned shop with deep roots in this community.</p>
+        <p>Our expert designers pour their heart into every bouquet — whether it's a simple "thinking of you" arrangement or a grand sympathy tribute for a memorial service. We source the finest fresh flowers and take pride in our craft.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Years</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Cities Served</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Hand-Delivered</div>
+          </div>
+        </div>
+        <div class="mt-24">
+          <a href="about.html" class="btn btn-sage">Learn More About Us</a>
+        </div>
+      </div>
+      <div class="about-img-placeholder">
+        <span class="flower-big">&#127826;</span>
+        <p>Cupertino Florist — Est. 1982</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY & HOURS -->
+  <section class="info-section">
+    <div class="container">
+      <div class="text-center mb-32">
+        <h2 class="section-title">Visit Us or Order Online</h2>
+        <p class="section-subtitle">We're here when you need us most.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <h3>&#128336; Store Hours</h3>
+          <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">8:00 AM – 5:30 PM</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span class="time">8:00 AM – 4:00 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span class="day">Holidays</span><span class="time">Hours vary — call ahead</span></div>
+          <div class="mt-16">
+            <a href="contact.html" class="btn btn-outline-sage btn-sm">Get Directions</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <h3>&#128666; Delivery Info</h3>
+          <p style="font-size:0.88rem;color:#5A5A5A;line-height:1.7;margin-bottom:16px;">We offer same-day hand delivery throughout Cupertino and 15+ neighboring cities. Order by noon for guaranteed same-day delivery.</p>
+          <p style="font-size:0.88rem;color:#5A5A5A;line-height:1.7;margin-bottom:16px;"><strong>Delivery fee:</strong> $15 per order</p>
+          <p style="font-size:0.88rem;color:#5A5A5A;"><strong>Funeral home delivery</strong> available 7 days a week.</p>
+          <div class="mt-16">
+            <a href="delivery.html" class="btn btn-outline-sage btn-sm">Full Delivery Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cupertino <span>Florist</span></div>
+        <p>Family-owned floral shop serving Cupertino and the South Bay since 1982. Fresh flowers, hand-delivered with care.</p>
+        <a href="tel:4082523560" class="footer-phone">(408) 252-3560</a>
+        <a href="tel:8882523560" style="font-size:0.8rem;color:#888;">Toll-free: (888) 252-3560</a>
+        <p style="font-size:0.78rem;margin-top:10px;color:#666;">20530 Stevens Creek Blvd<br>Cupertino, CA 95014</p>
+      </div>
+      <div class="footer-col">
+        <h4>By Occasion</h4>
+        <ul>
+          <li><a href="products.html?category=birthday">Birthday</a></li>
+          <li><a href="products.html?category=anniversary">Anniversary</a></li>
+          <li><a href="products.html?category=love-romance">Love &amp; Romance</a></li>
+          <li><a href="products.html?category=new-baby">New Baby</a></li>
+          <li><a href="products.html?category=sympathy">Sympathy</a></li>
+          <li><a href="products.html?category=get-well">Get Well</a></li>
+          <li><a href="products.html?category=congratulations">Congratulations</a></li>
+          <li><a href="products.html?category=thank-you">Thank You</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html?category=roses">Roses</a></li>
+          <li><a href="products.html?category=plants">Plants</a></li>
+          <li><a href="products.html?category=tropicals">Tropicals</a></li>
+          <li><a href="products.html?category=gifts">Gifts</a></li>
+          <li><a href="products.html?category=casket-sprays">Casket Sprays</a></li>
+          <li><a href="products.html?category=standing-sprays">Standing Sprays</a></li>
+          <li><a href="products.html?category=wreaths-hearts-crosses">Wreaths &amp; Hearts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="more-info.html">More Information</a></li>
+          <li><a href="join-email.html">Join Email List</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cupertino Florist. All rights reserved.</span>
+      <span>20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Build featured product cards
+    const FEATURED_IDS = ['VAL100', 'PHALE01', 'EV100-11', 'EV93-21'];
+    const grid = document.getElementById('featured-grid');
+
+    FEATURED_IDS.forEach(id => {
+      const p = window.PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+
+      const badgeClass = p.badge ? ` badge-${p.badge.toLowerCase().replace(/\s+/g,'')}` : '';
+      const badgeHTML  = p.badge ? `<span class="product-badge${badgeClass}">${p.badge}</span>` : '';
+
+      grid.innerHTML += `
+        <div class="product-card">
+          <a href="product.html?id=${p.id}">
+            <div class="product-card-img-wrap">
+              ${badgeHTML}
+              <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e8f0e9%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2248%22%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E'">
+            </div>
+          </a>
+          <div class="product-card-body">
+            <div class="product-card-name"><a href="product.html?id=${p.id}">${p.name}</a></div>
+            <div class="product-card-price">From <strong>$${p.prices.s}</strong></div>
+            <div class="product-card-delivery">&#128666; ${p.delivery}</div>
+            <div class="product-card-controls">
+              <select class="size-select" id="size-${p.id}">
+                <option value="s">Small — $${p.prices.s}</option>
+                <option value="m">Medium — $${p.prices.m}</option>
+                <option value="l">Large — $${p.prices.l}</option>
+              </select>
+              <button class="add-to-cart-btn" onclick="addToCartWithFeedback('${p.id}', document.getElementById('size-${p.id}').value, this)">Add to Cart</button>
+            </div>
+          </div>
+        </div>`;
+    });
+  </script>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <span class="logo">Cupertino <span>Florist</span></span>
+      <button class="mobile-nav-close" id="mobileClose">&#10005;</button>
+    </div>
+    <div class="mobile-nav-search">
+      <form action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a>
+      <a href="products.html?category=anniversary" class="sub">Anniversary</a>
+      <a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a>
+      <a href="products.html?category=new-baby" class="sub">New Baby</a>
+      <a href="products.html?category=sympathy" class="sub">Sympathy</a>
+      <a href="products.html?category=get-well" class="sub">Get Well</a>
+      <a href="products.html?category=congratulations" class="sub">Congratulations</a>
+      <a href="products.html?category=thank-you" class="sub">Thank You</a>
+      <a href="products.html?category=just-because" class="sub">Just Because</a>
+      <div class="group-label">Products</div>
+      <a href="products.html?category=roses" class="sub">Roses</a>
+      <a href="products.html?category=plants" class="sub">Plants</a>
+      <a href="products.html?category=tropicals" class="sub">Tropicals</a>
+      <a href="products.html?category=gifts" class="sub">Gifts</a>
+      <a href="products.html?category=sympathy-flowers" class="sub">Sympathy Flowers</a>
+      <a href="products.html?category=casket-sprays" class="sub">Casket Sprays</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a>
+      <a href="contact.html" class="sub">Contact Us</a>
+      <a href="delivery.html" class="sub">Delivery Info</a>
+      <a href="faq.html" class="sub">FAQ</a>
+      <a href="join-email.html" class="sub">Join Email List</a>
+      <a href="more-info.html" class="sub">More Info</a>
+      <a href="signin.html">Sign In</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <a href="tel:4082523560">(408) 252-3560</a>
+      <span>20530 Stevens Creek Blvd, Cupertino</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+  </script>
+</body>
+</html>

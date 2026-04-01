@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Flowers — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      min-height: 60vh;
+    }
+    /* Sidebar */
+    .sidebar {
+      background: #fff;
+      border-right: 1px solid #E5E0D8;
+      padding: 28px 0;
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+    .sidebar h3 {
+      font-family: Georgia, serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8A8A8A;
+      padding: 0 20px 12px;
+      border-bottom: 1px solid #E5E0D8;
+      margin-bottom: 8px;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 20px;
+      font-size: 0.85rem;
+      color: #5A5A5A;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      width: 100%;
+      text-align: left;
+    }
+    .sidebar-link:hover { background: #f5f1ec; color: #6B8F71; }
+    .sidebar-link.active {
+      border-left-color: #6B8F71;
+      color: #6B8F71;
+      background: #f0f5f1;
+      font-weight: 600;
+    }
+    .sidebar-count {
+      font-size: 0.72rem;
+      color: #8A8A8A;
+      background: #f0ece6;
+      padding: 1px 7px;
+      border-radius: 20px;
+    }
+
+    /* Main content */
+    .catalog-main { padding: 28px 32px; }
+
+    .catalog-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .catalog-toolbar h1 {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+    }
+    .toolbar-right { display: flex; align-items: center; gap: 12px; }
+    .results-count { font-size: 0.85rem; color: #8A8A8A; }
+
+    .sort-select {
+      padding: 8px 14px;
+      border: 1px solid #E5E0D8;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #2C2C2C;
+      background: #fff;
+      outline: none;
+      cursor: pointer;
+    }
+    .sort-select:focus { border-color: #6B8F71; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 64px 20px;
+      color: #8A8A8A;
+      grid-column: 1 / -1;
+    }
+    .empty-state .big-flower { font-size: 4rem; margin-bottom: 16px; }
+    .empty-state h3 { font-family: Georgia, serif; font-size: 1.4rem; margin-bottom: 8px; color: #5A5A5A; }
+
+    @media (max-width: 900px) {
+      .catalog-layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .catalog-main { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>&#128205; 20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+      <a href="tel:4082523560">&#128222; (408) 252-3560</a>
+    </div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers..." id="topbar-search-input">
+        <button type="submit">&#128269;</button>
+      </form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link">
+        &#128722; Cart
+        <span class="cart-badge cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html">Occasion <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=any-occasion">Any Occasion</a>
+            <a href="products.html?category=birthday">Birthday</a>
+            <a href="products.html?category=anniversary">Anniversary</a>
+            <a href="products.html?category=love-romance">Love &amp; Romance</a>
+            <a href="products.html?category=new-baby">New Baby</a>
+            <a href="products.html?category=sympathy">Sympathy</a>
+            <a href="products.html?category=get-well">Get Well</a>
+            <a href="products.html?category=congratulations">Congratulations</a>
+            <a href="products.html?category=thank-you">Thank You</a>
+            <a href="products.html?category=just-because">Just Because</a>
+            <a href="products.html?category=for-him">For Him</a>
+            <a href="products.html?category=patriotic">Patriotic</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="products.html">Products <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=casket-sprays">Casket Sprays</a>
+            <a href="products.html?category=gifts">Gifts</a>
+            <a href="products.html?category=plants">Plants</a>
+            <a href="products.html?category=roses">Roses</a>
+            <a href="products.html?category=standing-sprays">Standing Sprays</a>
+            <a href="products.html?category=sympathy-flowers">Sympathy Flowers</a>
+            <a href="products.html?category=tropicals">Tropicals</a>
+            <a href="products.html?category=wreaths-hearts-crosses">Wreaths Hearts Crosses</a>
+            <a href="products.html?category=sympathy-vases">Sympathy Vases</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item">
+          <a href="about.html">Our Company <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="more-info.html">More Information</a>
+            <a href="join-email.html">Join Email List</a>
+            <a href="more-info.html#refer">Refer a Friend</a>
+          </div>
+        </li>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span>&#8250;</span>
+    <span id="bc-current">All Products</span>
+  </div>
+
+  <!-- CATALOG -->
+  <div class="catalog-layout" id="occasions">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Filter</h3>
+      <button class="sidebar-link active" data-cat="all">All Arrangements <span class="sidebar-count" id="count-all">0</span></button>
+      <button class="sidebar-link" data-cat="birthday">Birthday <span class="sidebar-count" id="count-birthday"></span></button>
+      <button class="sidebar-link" data-cat="love-romance">Love &amp; Romance <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="anniversary">Anniversary <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="new-baby">New Baby <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="sympathy">Sympathy <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="get-well">Get Well <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="roses">Roses <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="plants">Plants <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="gifts">Gifts <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="tropicals">Tropicals <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="congratulations">Congratulations <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="just-because">Just Because <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="thank-you">Thank You <span class="sidebar-count"></span></button>
+      <button class="sidebar-link" data-cat="any-occasion">Any Occasion <span class="sidebar-count"></span></button>
+    </aside>
+
+    <!-- Main -->
+    <main class="catalog-main">
+      <div class="catalog-toolbar">
+        <div>
+          <h1 id="catalog-title">All Arrangements</h1>
+          <div class="results-count" id="results-count"></div>
+        </div>
+        <div class="toolbar-right">
+          <select class="sort-select" id="sort-select">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A–Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cupertino <span>Florist</span></div>
+        <p>Family-owned floral shop serving Cupertino and the South Bay since 1982. Fresh flowers, hand-delivered with care.</p>
+        <a href="tel:4082523560" class="footer-phone">(408) 252-3560</a>
+        <a href="tel:8882523560" style="font-size:0.8rem;color:#888;">Toll-free: (888) 252-3560</a>
+        <p style="font-size:0.78rem;margin-top:10px;color:#666;">20530 Stevens Creek Blvd<br>Cupertino, CA 95014</p>
+      </div>
+      <div class="footer-col">
+        <h4>By Occasion</h4>
+        <ul>
+          <li><a href="products.html?category=birthday">Birthday</a></li>
+          <li><a href="products.html?category=anniversary">Anniversary</a></li>
+          <li><a href="products.html?category=love-romance">Love &amp; Romance</a></li>
+          <li><a href="products.html?category=new-baby">New Baby</a></li>
+          <li><a href="products.html?category=sympathy">Sympathy</a></li>
+          <li><a href="products.html?category=get-well">Get Well</a></li>
+          <li><a href="products.html?category=congratulations">Congratulations</a></li>
+          <li><a href="products.html?category=thank-you">Thank You</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html?category=roses">Roses</a></li>
+          <li><a href="products.html?category=plants">Plants</a></li>
+          <li><a href="products.html?category=tropicals">Tropicals</a></li>
+          <li><a href="products.html?category=gifts">Gifts</a></li>
+          <li><a href="products.html?category=casket-sprays">Casket Sprays</a></li>
+          <li><a href="products.html?category=standing-sprays">Standing Sprays</a></li>
+          <li><a href="products.html?category=wreaths-hearts-crosses">Wreaths &amp; Hearts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="more-info.html">More Information</a></li>
+          <li><a href="join-email.html">Join Email List</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cupertino Florist. All rights reserved.</span>
+      <span>20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let activeCategory = urlParams.get('category') || 'all';
+    const searchQuery  = urlParams.get('search') || '';
+
+    // Pre-fill search box if query present
+    if (searchQuery) document.getElementById('topbar-search-input').value = searchQuery;
+
+    const CATEGORY_LABELS = {
+      'all': 'All Arrangements',
+      'birthday': 'Birthday',
+      'love-romance': 'Love & Romance',
+      'anniversary': 'Anniversary',
+      'new-baby': 'New Baby',
+      'sympathy': 'Sympathy',
+      'get-well': 'Get Well',
+      'roses': 'Roses',
+      'plants': 'Plants',
+      'gifts': 'Gifts',
+      'tropicals': 'Tropicals',
+      'congratulations': 'Congratulations',
+      'just-because': 'Just Because',
+      'thank-you': 'Thank You',
+      'any-occasion': 'Any Occasion',
+      'casket-sprays': 'Casket Sprays',
+      'standing-sprays': 'Standing Sprays',
+      'sympathy-flowers': 'Sympathy Flowers',
+      'wreaths-hearts-crosses': 'Wreaths, Hearts & Crosses',
+      'sympathy-vases': 'Sympathy Vases',
+      'for-him': 'For Him',
+      'patriotic': 'Patriotic'
+    };
+
+    function filterProducts() {
+      let list = [...window.PRODUCTS];
+
+      // Search filter
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        list = list.filter(p =>
+          p.name.toLowerCase().includes(q) ||
+          (p.description && p.description.toLowerCase().includes(q)) ||
+          p.categories.some(c => c.includes(q))
+        );
+      }
+
+      // Category filter
+      if (activeCategory && activeCategory !== 'all') {
+        list = list.filter(p => p.categories.includes(activeCategory));
+      }
+
+      // Sort
+      const sort = document.getElementById('sort-select').value;
+      if (sort === 'price-asc')  list.sort((a,b) => a.prices.s - b.prices.s);
+      if (sort === 'price-desc') list.sort((a,b) => b.prices.s - a.prices.s);
+      if (sort === 'name-asc')   list.sort((a,b) => a.name.localeCompare(b.name));
+
+      return list;
+    }
+
+    function badgeClass(badge) {
+      if (!badge) return '';
+      return 'badge-' + badge.toLowerCase().replace(/\s+/g,'');
+    }
+
+    function renderProducts() {
+      const products = filterProducts();
+      const grid = document.getElementById('product-grid');
+      const title = document.getElementById('catalog-title');
+      const count = document.getElementById('results-count');
+      const bc    = document.getElementById('bc-current');
+
+      const label = searchQuery
+        ? `Search: "${searchQuery}"`
+        : (CATEGORY_LABELS[activeCategory] || activeCategory);
+
+      title.textContent = label;
+      bc.textContent    = label;
+      count.textContent = products.length + ' arrangement' + (products.length !== 1 ? 's' : '');
+
+      if (products.length === 0) {
+        grid.innerHTML = `<div class="empty-state"><div class="big-flower">&#127801;</div><h3>No arrangements found</h3><p>Try a different category or <a href="products.html" style="color:#6B8F71">browse all</a>.</p></div>`;
+        return;
+      }
+
+      grid.innerHTML = products.map(p => {
+        const b = p.badge ? `<span class="product-badge ${badgeClass(p.badge)}">${p.badge}</span>` : '';
+        return `
+          <div class="product-card">
+            <a href="product.html?id=${p.id}">
+              <div class="product-card-img-wrap">
+                ${b}
+                <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e8f0e9%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2248%22%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E'">
+              </div>
+            </a>
+            <div class="product-card-body">
+              <div class="product-card-name"><a href="product.html?id=${p.id}">${p.name}</a></div>
+              <div class="product-card-price">From <strong>$${p.prices.s % 1 === 0 ? p.prices.s : p.prices.s.toFixed(2)}</strong></div>
+              <div class="product-card-delivery">&#128666; ${p.delivery}</div>
+              <div class="product-card-controls">
+                <select class="size-select" id="ps-${p.id}">
+                  <option value="s">Small — $${p.prices.s}</option>
+                  <option value="m">Medium — $${p.prices.m}</option>
+                  <option value="l">Large — $${p.prices.l}</option>
+                </select>
+                <button class="add-to-cart-btn" onclick="addToCartWithFeedback('${p.id}', document.getElementById('ps-${p.id}').value, this)">Add to Cart</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // Update sidebar active state + counts
+    function updateSidebar() {
+      document.querySelectorAll('.sidebar-link').forEach(btn => {
+        const cat = btn.dataset.cat;
+        btn.classList.toggle('active', cat === activeCategory);
+        const count = cat === 'all'
+          ? window.PRODUCTS.length
+          : window.PRODUCTS.filter(p => p.categories.includes(cat)).length;
+        const badge = btn.querySelector('.sidebar-count');
+        if (badge) badge.textContent = count;
+      });
+    }
+
+    // Sidebar clicks
+    document.querySelectorAll('.sidebar-link').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.cat;
+        updateSidebar();
+        renderProducts();
+        // Update URL without reload
+        const url = new URL(window.location.href);
+        if (activeCategory === 'all') url.searchParams.delete('category');
+        else url.searchParams.set('category', activeCategory);
+        history.pushState({}, '', url.toString());
+      });
+    });
+
+    document.getElementById('sort-select').addEventListener('change', renderProducts);
+
+    // Init
+    updateSidebar();
+    renderProducts();
+  </script>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <span class="logo">Cupertino <span>Florist</span></span>
+      <button class="mobile-nav-close" id="mobileClose">&#10005;</button>
+    </div>
+    <div class="mobile-nav-search">
+      <form action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a>
+      <a href="products.html?category=anniversary" class="sub">Anniversary</a>
+      <a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a>
+      <a href="products.html?category=new-baby" class="sub">New Baby</a>
+      <a href="products.html?category=sympathy" class="sub">Sympathy</a>
+      <a href="products.html?category=get-well" class="sub">Get Well</a>
+      <a href="products.html?category=congratulations" class="sub">Congratulations</a>
+      <a href="products.html?category=thank-you" class="sub">Thank You</a>
+      <a href="products.html?category=just-because" class="sub">Just Because</a>
+      <div class="group-label">Products</div>
+      <a href="products.html?category=roses" class="sub">Roses</a>
+      <a href="products.html?category=plants" class="sub">Plants</a>
+      <a href="products.html?category=tropicals" class="sub">Tropicals</a>
+      <a href="products.html?category=gifts" class="sub">Gifts</a>
+      <a href="products.html?category=sympathy-flowers" class="sub">Sympathy Flowers</a>
+      <a href="products.html?category=casket-sprays" class="sub">Casket Sprays</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a>
+      <a href="contact.html" class="sub">Contact Us</a>
+      <a href="delivery.html" class="sub">Delivery Info</a>
+      <a href="faq.html" class="sub">FAQ</a>
+      <a href="join-email.html" class="sub">Join Email List</a>
+      <a href="more-info.html" class="sub">More Info</a>
+      <a href="signin.html">Sign In</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <a href="tel:4082523560">(408) 252-3560</a>
+      <span>20530 Stevens Creek Blvd, Cupertino</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+  </script>
+</body>
+</html>

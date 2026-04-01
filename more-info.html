@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Information — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .content-wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px 60px; }
+    .info-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 28px; margin-bottom: 24px; }
+    .info-card h2 { font-family: Georgia, serif; font-size: 1.3rem; font-weight: normal; color: #2C2C2C; margin-bottom: 18px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-cloud span { background: #FAF8F4; border: 1px solid #E5E0D8; border-radius: 16px; padding: 5px 14px; font-size: 13px; color: #5A5A5A; }
+    .list-col { columns: 2; column-gap: 24px; }
+    .list-col p { font-size: 14px; color: #5A5A5A; padding: 5px 0; border-bottom: 1px solid #F0EDE8; break-inside: avoid; display: flex; align-items: center; gap: 6px; }
+    .list-col p::before { content: "✓"; color: #6B8F71; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+    .refer-card { background: linear-gradient(135deg, #e8f0ea, #f5eef5); border: 1px solid #d5e8d7; border-radius: 12px; padding: 32px; text-align: center; }
+    .refer-card h2 { font-family: Georgia, serif; font-size: 1.6rem; font-weight: normal; margin-bottom: 10px; }
+    .refer-card p { color: #5A5A5A; font-size: 15px; margin-bottom: 20px; line-height: 1.7; }
+    .share-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity .2s; }
+    .share-btn:hover { opacity: .85; }
+    .share-email { background: #6B8F71; color: white; }
+    .share-sms { background: #8B5E8B; color: white; }
+    @media (max-width: 600px) { .list-col { columns: 1; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">&#128269;</button></form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Occasion <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=birthday">Birthday</a><a href="products.html?category=love-romance">Love &amp; Romance</a><a href="products.html?category=sympathy">Sympathy</a></div></li>
+        <li class="nav-item"><a href="products.html">Products <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=roses">Roses</a><a href="products.html?category=plants">Plants</a></div></li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item"><a href="about.html" class="active">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb" style="padding:14px 40px;background:white;border-bottom:1px solid #E5E0D8;font-size:12px;color:#8A8A8A">
+    <a href="index.html" style="color:#8A8A8A;text-decoration:none">Home</a> <span>›</span> <a href="about.html" style="color:#8A8A8A;text-decoration:none">Our Company</a> <span>›</span> More Information
+  </div>
+
+  <div class="content-wrap">
+    <h1 style="font-family:Georgia,serif;font-size:2rem;font-weight:normal;color:#2C2C2C;margin-bottom:8px">More <em style="color:#C9848C;font-style:italic">Information</em></h1>
+    <p style="color:#8A8A8A;margin-bottom:36px">A full overview of our service area, facilities we serve, and what we offer.</p>
+
+    <div class="info-card">
+      <h2>&#127968; Cities We Serve</h2>
+      <div class="list-col">
+        <p>Alviso</p><p>Campbell</p><p>Cupertino</p><p>East Palo Alto</p>
+        <p>Fremont</p><p>Los Altos</p><p>Los Altos Hills</p><p>Los Gatos</p>
+        <p>Menlo Park</p><p>Milpitas</p><p>Mountain View</p><p>Palo Alto</p>
+        <p>Portola Valley</p><p>Saratoga</p><p>San Jose</p><p>Santa Clara</p>
+        <p>Stanford</p><p>Sunnyvale</p><p>Woodside</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#128203; Zip Codes Served</h2>
+      <div class="tag-cloud">
+        <span>94022</span><span>94023</span><span>94024</span><span>94035</span><span>94039</span>
+        <span>94040</span><span>94041</span><span>94042</span><span>94043</span><span>94085</span>
+        <span>94086</span><span>94087</span><span>94088</span><span>94089</span><span>94301</span>
+        <span>94303</span><span>94305</span><span>94306</span><span>95002</span><span>95008</span>
+        <span>95014</span><span>95030</span><span>95031</span><span>95032</span><span>95035</span>
+        <span>95050</span><span>95051</span><span>95052</span><span>95053</span><span>95054</span>
+        <span>95070</span><span>95101</span><span>95110</span><span>95112</span><span>95117</span>
+        <span>95118</span><span>95119</span><span>95120</span><span>95121</span><span>95125</span>
+        <span>95126</span><span>95127</span><span>95128</span><span>95129</span><span>95130</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#127973; Cemeteries &amp; Funeral Homes</h2>
+      <div class="list-col">
+        <p>Alta Mesa Memorial Park</p><p>Calvary Catholic Cemetery</p>
+        <p>Gate of Heaven Catholic Cemetery</p><p>Madronia Cemetery</p>
+        <p>Mission City Memorial Park</p><p>Santa Clara Mission Cemetery</p>
+        <p>Alameda Family Funeral &amp; Cremation</p><p>Campbell Memorial Chapel</p>
+        <p>Chapel Of Flowers Funeral Home</p><p>Chapel Of The Hills</p>
+        <p>Cusimano Family Colonial Mortuary</p><p>Darling Fischer Garden Chapel</p>
+        <p>Darling-Fischer Mortuaries</p><p>Lima Campagna Sunnyvale Mortuary</p>
+        <p>Lima Family Santa Clara Mortuary</p><p>Los Gatos Memorial Park</p>
+        <p>Mission Chapel Of San Jose</p><p>Oak Hill Memorial Park</p>
+        <p>Spangler Mortuaries</p><p>Willow Glen Funeral Chapel</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#127973; Hospitals We Deliver To</h2>
+      <div class="list-col">
+        <p>El Camino Hospital</p><p>Good Samaritan Hospital</p>
+        <p>Kaiser Permanente Hospital</p><p>Kaiser Permanente San Jose</p>
+        <p>Lucile Packard Children's Hospital</p><p>Mission Oaks Hospital</p>
+        <p>Mountain View Health Care Center</p><p>O'Connor Hospital</p>
+        <p>Regional Medical Center of San Jose</p><p>San Jose Medical Center</p>
+        <p>Stanford Hospital</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#127800; Products We Sell</h2>
+      <div class="tag-cloud">
+        <span>Fresh Flowers — Domestic</span><span>Fresh Flowers — Exotic</span>
+        <span>Fresh Flowers — Roses</span><span>Fresh Flowers — Orchids</span>
+        <span>Plants — Green</span><span>Plants — Blooming</span>
+        <span>Plants — Dish / European</span><span>Arrangements — Traditional</span>
+        <span>Arrangements — High-Style</span><span>Arrangements — Exotic</span>
+        <span>Arrangements — Funeral</span>
+      </div>
+    </div>
+
+    <div class="refer-card" id="refer">
+      <h2>&#128141; Refer a Friend</h2>
+      <p>Love Cupertino Florist? Share us with friends and family who deserve beautiful flowers!</p>
+      <div class="share-row">
+        <a href="mailto:?subject=Check%20out%20Cupertino%20Florist!&body=I%20highly%20recommend%20Cupertino%20Florist%20at%20www.cupertinoflorist.com%20—%20amazing%20fresh%20flowers%20and%20same-day%20delivery%20throughout%20Silicon%20Valley!" class="share-btn share-email">&#9993; Share by Email</a>
+        <a href="sms:?body=Check%20out%20Cupertino%20Florist!%20Great%20local%20flower%20shop%20with%20same-day%20delivery.%20www.cupertinoflorist.com" class="share-btn share-sms">&#128241; Share by Text</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a><a href="products.html">Shop All</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a><a href="contact.html" class="sub">Contact</a><a href="delivery.html" class="sub">Delivery</a><a href="faq.html" class="sub">FAQ</a><a href="more-info.html" class="sub" style="color:#6B8F71;font-weight:700">More Info</a>
+      <a href="cart.html">&#128722; Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a><span>7289 Coronado Dr, San Jose, CA</span></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);})();
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned, serving Silicon Valley 40+ years.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=roses">Roses</a></li></ul></div>
+      <div class="footer-col"><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="delivery.html">Delivery</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="more-info.html">More Info</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span></div>
+  </footer>
+</body>
+</html>

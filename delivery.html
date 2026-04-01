@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Information — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .content-wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px 60px; }
+    .info-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 28px; margin-bottom: 24px; }
+    .info-card h2 { font-family: Georgia, serif; font-size: 1.3rem; font-weight: normal; color: #2C2C2C; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    .cutoff-table { width: 100%; border-collapse: collapse; }
+    .cutoff-table th { background: #FAF8F4; text-align: left; padding: 10px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #5A5A5A; border-bottom: 2px solid #E5E0D8; }
+    .cutoff-table td { padding: 12px 14px; border-bottom: 1px solid #E5E0D8; font-size: 14px; color: #5A5A5A; }
+    .cutoff-table tr:last-child td { border-bottom: none; }
+    .cutoff-table td:first-child { font-weight: 600; color: #2C2C2C; }
+    .cutoff-table .available { color: #6B8F71; font-weight: 600; }
+    .cutoff-table .unavailable { color: #C9848C; }
+    .cities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 24px; }
+    .cities-grid span { font-size: 14px; color: #5A5A5A; padding: 5px 0; border-bottom: 1px solid #F0EDE8; display: flex; align-items: center; gap: 6px; }
+    .cities-grid span::before { content: "✓"; color: #6B8F71; font-weight: 700; font-size: 12px; }
+    .fee-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #E5E0D8; font-size: 14px; }
+    .fee-row:last-child { border-bottom: none; }
+    .fee-row .amt { font-weight: 700; color: #6B8F71; }
+    .tip-box { background: linear-gradient(135deg, #f0f7f1, #fdf9f4); border: 1px solid #d5e8d7; border-radius: 8px; padding: 20px 24px; margin-top: 20px; }
+    .tip-box p { font-size: 14px; color: #3a6b42; line-height: 1.7; }
+    .tip-box strong { color: #2C2C2C; }
+    @media (max-width: 600px) { .cities-grid { grid-template-columns: 1fr 1fr; } .cutoff-table { font-size: 13px; } }
+    @media (max-width: 400px) { .cities-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">&#128269;</button></form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Occasion <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=birthday">Birthday</a><a href="products.html?category=anniversary">Anniversary</a><a href="products.html?category=love-romance">Love &amp; Romance</a><a href="products.html?category=new-baby">New Baby</a><a href="products.html?category=sympathy">Sympathy</a><a href="products.html?category=get-well">Get Well</a></div></li>
+        <li class="nav-item"><a href="products.html">Products <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=roses">Roses</a><a href="products.html?category=plants">Plants</a><a href="products.html?category=tropicals">Tropicals</a></div></li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html" class="active">Delivery Info</a></li>
+        <li class="nav-item"><a href="about.html">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb" style="padding:14px 40px;background:white;border-bottom:1px solid #E5E0D8;font-size:12px;color:#8A8A8A">
+    <a href="index.html" style="color:#8A8A8A;text-decoration:none">Home</a> <span>›</span> Delivery Information
+  </div>
+
+  <div class="content-wrap">
+    <h1 style="font-family:Georgia,serif;font-size:2rem;font-weight:normal;color:#2C2C2C;margin-bottom:8px">Delivery <em style="color:#C9848C;font-style:italic">Information</em></h1>
+    <p style="color:#8A8A8A;margin-bottom:32px">We hand-deliver to homes, offices, hospitals, and funeral homes throughout Silicon Valley.</p>
+
+    <div class="info-card">
+      <h2>&#128337; Same-Day Delivery Cut-Off Times</h2>
+      <table class="cutoff-table">
+        <thead><tr><th>Day</th><th>Order By</th><th>Delivery By</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Monday</td><td>2:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Tuesday</td><td>2:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Wednesday</td><td>2:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Thursday</td><td>2:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Friday</td><td>2:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Saturday</td><td>12:00 PM</td><td>6:00 PM</td><td class="available">Available</td></tr>
+          <tr><td>Sunday</td><td>—</td><td>—</td><td class="unavailable">Closed</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box" style="margin-top:20px"><p><strong>Holiday orders:</strong> We recommend ordering 2–3 days in advance for Valentine's Day, Mother's Day, Easter, and other peak holidays to ensure timely delivery.</p></div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#128652; Delivery Fees</h2>
+      <div class="fee-row"><span>Standard delivery (most areas)</span><span class="amt">$15.00</span></div>
+      <div class="fee-row"><span>Extended delivery area</span><span class="amt">$18.00 – $22.00</span></div>
+      <div class="fee-row"><span>Funeral home / cemetery delivery</span><span class="amt">$15.00</span></div>
+      <div class="fee-row"><span>Hospital delivery</span><span class="amt">$15.00</span></div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#127968; Delivery Cities</h2>
+      <p style="color:#8A8A8A;font-size:14px;margin-bottom:18px">We deliver to the following cities in the Silicon Valley area:</p>
+      <div class="cities-grid">
+        <span>Alviso</span><span>Campbell</span><span>Cupertino</span>
+        <span>East Palo Alto</span><span>Fremont</span><span>Los Altos</span>
+        <span>Los Altos Hills</span><span>Los Gatos</span><span>Menlo Park</span>
+        <span>Milpitas</span><span>Mountain View</span><span>Palo Alto</span>
+        <span>Portola Valley</span><span>Saratoga</span><span>San Jose</span>
+        <span>Santa Clara</span><span>Stanford</span><span>Sunnyvale</span>
+        <span>Woodside</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>&#127973; Hospitals &amp; Funeral Homes</h2>
+      <p style="color:#5A5A5A;font-size:14px;margin-bottom:14px">We regularly deliver to local hospitals and funeral homes. Call us to confirm delivery details for specific facilities.</p>
+      <a href="more-info.html" style="color:#6B8F71;font-weight:600;font-size:14px;text-decoration:none">View full facility list →</a>
+    </div>
+
+    <div style="text-align:center;margin-top:32px">
+      <p style="color:#8A8A8A;margin-bottom:16px">Questions about your delivery? Call us directly.</p>
+      <a href="tel:4082523560" class="btn-primary" style="font-size:16px">&#128222; (408) 252-3560</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <div class="mobile-nav-search"><form action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">Search</button></form></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a><a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a><a href="products.html?category=sympathy" class="sub">Sympathy</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a><a href="contact.html" class="sub">Contact Us</a><a href="delivery.html" class="sub" style="color:#6B8F71;font-weight:700">Delivery Info</a><a href="faq.html" class="sub">FAQ</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a><span>7289 Coronado Dr, San Jose, CA</span></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);})();
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned floral shop serving the Silicon Valley since the 1980s.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>By Occasion</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=sympathy">Sympathy</a></li><li><a href="products.html?category=love-romance">Love &amp; Romance</a></li></ul></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html?category=roses">Roses</a></li><li><a href="products.html?category=plants">Plants</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="delivery.html">Delivery Info</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span></div>
+  </footer>
+</body>
+</html>

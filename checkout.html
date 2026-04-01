@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px;
+      align-items: start;
+    }
+    .checkout-form-area {}
+
+    .checkout-section {
+      background: #fff;
+      border: 1px solid #E5E0D8;
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .checkout-section h3 {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E5E0D8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #2C2C2C;
+    }
+    .section-num {
+      width: 26px; height: 26px;
+      background: #6B8F71;
+      color: #fff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .demo-note {
+      background: #fff8e6;
+      border: 1px solid #f0d080;
+      border-left: 4px solid #e0a000;
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      color: #7a5a00;
+      margin-bottom: 16px;
+    }
+
+    /* Order Summary sidebar */
+    .checkout-summary {
+      background: #fff;
+      border: 1px solid #E5E0D8;
+      border-radius: 10px;
+      padding: 28px;
+      position: sticky;
+      top: 80px;
+    }
+    .checkout-summary h2 {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E5E0D8;
+    }
+    .summary-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0ece6;
+    }
+    .summary-item:last-of-type { border-bottom: none; }
+    .summary-item img {
+      width: 56px; height: 56px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid #E5E0D8;
+      flex-shrink: 0;
+    }
+    .si-info { flex: 1; }
+    .si-name { font-size: 0.85rem; font-weight: 600; color: #2C2C2C; }
+    .si-meta { font-size: 0.75rem; color: #8A8A8A; }
+    .si-price { font-size: 0.88rem; font-weight: 600; color: #2C2C2C; white-space: nowrap; }
+    .summary-totals { margin-top: 16px; padding-top: 16px; border-top: 1px solid #E5E0D8; }
+    .sum-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 5px 0; color: #5A5A5A; }
+    .sum-row.total { font-size: 1.05rem; font-weight: 700; color: #2C2C2C; border-top: 2px solid #E5E0D8; margin-top: 8px; padding-top: 12px; }
+    .place-order-btn {
+      width: 100%;
+      padding: 15px;
+      background: #6B8F71;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.2s;
+    }
+    .place-order-btn:hover { background: #5a7a60; }
+
+    @media (max-width: 900px) {
+      .checkout-layout { grid-template-columns: 1fr; padding: 24px 16px; }
+      .checkout-summary { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>&#128205; 20530 Stevens Creek Blvd, Cupertino, CA 95014</span>
+      <a href="tel:4082523560">&#128222; (408) 252-3560</a>
+    </div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">&#128269;</button>
+      </form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link">
+        &#128722; Cart
+        <span class="cart-badge cart-count" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html">Occasion <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="products.html?category=birthday">Birthday</a>
+            <a href="products.html?category=anniversary">Anniversary</a>
+            <a href="products.html?category=love-romance">Love &amp; Romance</a>
+            <a href="products.html?category=sympathy">Sympathy</a>
+            <a href="products.html?category=get-well">Get Well</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item">
+          <a href="about.html">Our Company <span class="arrow">&#9660;</span></a>
+          <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </li>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span>&#8250;</span>
+    <a href="cart.html">Cart</a>
+    <span>&#8250;</span>
+    <span>Checkout</span>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Checkout</h1>
+      <p>Complete your order below. All fields marked * are required.</p>
+    </div>
+  </div>
+
+  <!-- CHECKOUT CONTENT -->
+  <div class="checkout-layout">
+    <div class="checkout-form-area">
+
+      <!-- Section 1: Recipient -->
+      <div class="checkout-section">
+        <h3><span class="section-num">1</span> Recipient Information</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Recipient First Name *</label>
+            <input type="text" class="form-control" id="rec-fname" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label>Recipient Last Name *</label>
+            <input type="text" class="form-control" id="rec-lname" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Delivery Address *</label>
+          <input type="text" class="form-control" id="rec-addr" placeholder="1234 Blossom Lane" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City *</label>
+            <input type="text" class="form-control" id="rec-city" placeholder="Cupertino" required>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <select class="form-control" id="rec-state">
+              <option value="CA" selected>California</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ZIP Code *</label>
+            <input type="text" class="form-control" id="rec-zip" placeholder="95014" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label>Recipient Phone</label>
+            <input type="tel" class="form-control" id="rec-phone" placeholder="(408) 555-1234">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Delivery Location Type</label>
+          <select class="form-control" id="rec-type">
+            <option>Residence</option>
+            <option>Business / Office</option>
+            <option>Hospital</option>
+            <option>Funeral Home</option>
+            <option>Cemetery</option>
+            <option>Church / Chapel</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 2: Delivery Date -->
+      <div class="checkout-section">
+        <h3><span class="section-num">2</span> Delivery Date &amp; Time</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Delivery Date *</label>
+            <input type="date" class="form-control" id="del-date" required>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select class="form-control" id="del-time">
+              <option>Morning (8am – 12pm)</option>
+              <option>Afternoon (12pm – 5pm)</option>
+              <option>No preference</option>
+            </select>
+          </div>
+        </div>
+        <div class="info-box" style="margin-top:4px;">
+          &#8505; Same-day delivery available for orders placed before 12:00 PM (noon), Monday–Saturday. Sunday orders are next-day.
+        </div>
+      </div>
+
+      <!-- Section 3: Card Message -->
+      <div class="checkout-section">
+        <h3><span class="section-num">3</span> Card Message</h3>
+        <div class="form-group">
+          <label>Message for the Card (optional)</label>
+          <textarea class="form-control" id="card-msg" rows="4" placeholder="Write your personal message here... (max 200 characters)" maxlength="200"></textarea>
+        </div>
+        <div style="font-size:0.78rem;color:#8A8A8A">This message will be printed on the card accompanying your arrangement.</div>
+      </div>
+
+      <!-- Section 4: Your Info -->
+      <div class="checkout-section">
+        <h3><span class="section-num">4</span> Your Information</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" class="form-control" id="your-name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label>Your Email *</label>
+            <input type="email" class="form-control" id="your-email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Phone</label>
+          <input type="tel" class="form-control" id="your-phone" placeholder="(408) 555-5678">
+        </div>
+      </div>
+
+      <!-- Section 5: Payment -->
+      <div class="checkout-section">
+        <h3><span class="section-num">5</span> Payment Information</h3>
+        <div class="demo-note">&#9888; This is a demo/mockup. Do NOT enter real card details. No payment is processed.</div>
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" class="form-control" id="card-num" placeholder="4242 4242 4242 4242" maxlength="19">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="text" class="form-control" id="card-exp" placeholder="MM / YY" maxlength="7">
+          </div>
+          <div class="form-group">
+            <label>CVV / Security Code</label>
+            <input type="text" class="form-control" id="card-cvv" placeholder="123" maxlength="4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Name on Card</label>
+          <input type="text" class="form-control" id="card-name" placeholder="Jane Smith">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div>
+      <div class="checkout-summary">
+        <h2>Your Order</h2>
+        <div id="co-items"><!-- populated by JS --></div>
+        <div class="summary-totals">
+          <div class="sum-row"><span>Subtotal</span><span id="co-subtotal">$0.00</span></div>
+          <div class="sum-row"><span>Delivery</span><span>$15.00</span></div>
+          <div class="sum-row total"><span>Total</span><span id="co-total">$0.00</span></div>
+        </div>
+        <button class="place-order-btn" onclick="placeOrder()">&#127826; Place Order</button>
+        <a href="cart.html" style="display:block;text-align:center;margin-top:12px;font-size:0.82rem;color:#6B8F71;text-decoration:underline;">&#8592; Back to Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cupertino <span>Florist</span></div>
+        <p>Family-owned floral shop serving Cupertino and the South Bay since 1982.</p>
+        <a href="tel:4082523560" class="footer-phone">(408) 252-3560</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html">All Arrangements</a></li>
+          <li><a href="products.html?category=birthday">Birthday</a></li>
+          <li><a href="products.html?category=sympathy">Sympathy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Cupertino Florist. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    const DELIVERY_FEE = 15;
+
+    // Set default delivery date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('del-date').value = tomorrow.toISOString().split('T')[0];
+    document.getElementById('del-date').min = tomorrow.toISOString().split('T')[0];
+
+    // Render summary
+    function renderSummary() {
+      const cart = getCart();
+      const subtotal = getCartTotal();
+      const total = subtotal + DELIVERY_FEE;
+
+      document.getElementById('co-subtotal').textContent = '$' + subtotal.toFixed(2);
+      document.getElementById('co-total').textContent = '$' + total.toFixed(2);
+
+      document.getElementById('co-items').innerHTML = cart.map(item => `
+        <div class="summary-item">
+          <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2256%22 height=%2256%22%3E%3Crect fill=%22%23e8f0e9%22 width=%2256%22 height=%2256%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2224%22%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E'">
+          <div class="si-info">
+            <div class="si-name">${item.name}</div>
+            <div class="si-meta">${item.sizeLabel} &times; ${item.qty}</div>
+          </div>
+          <div class="si-price">$${(item.price * item.qty).toFixed(2)}</div>
+        </div>`).join('') || '<p style="color:#8A8A8A;font-size:0.85rem;">No items in cart.</p>';
+    }
+
+    window.placeOrder = function() {
+      // Basic validation
+      const required = ['rec-fname','rec-lname','rec-addr','rec-city','rec-zip','del-date','your-name','your-email'];
+      let missing = false;
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#C9848C';
+          missing = true;
+        } else {
+          el.style.borderColor = '';
+        }
+      });
+      if (missing) { showToast('Please fill in all required fields.'); return; }
+
+      const cart = getCart();
+      if (cart.length === 0) { showToast('Your cart is empty!'); return; }
+
+      const subtotal = getCartTotal();
+      const total = subtotal + DELIVERY_FEE;
+      const orderNum = String(Math.floor(100000 + Math.random() * 900000));
+
+      const order = {
+        orderNum,
+        date: new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }),
+        deliveryDate: document.getElementById('del-date').value,
+        deliveryTime: document.getElementById('del-time').value,
+        recipient: {
+          name: document.getElementById('rec-fname').value + ' ' + document.getElementById('rec-lname').value,
+          address: document.getElementById('rec-addr').value,
+          city: document.getElementById('rec-city').value,
+          state: document.getElementById('rec-state').value,
+          zip: document.getElementById('rec-zip').value,
+          phone: document.getElementById('rec-phone').value,
+          locType: document.getElementById('rec-type').value
+        },
+        cardMessage: document.getElementById('card-msg').value,
+        buyer: {
+          name: document.getElementById('your-name').value,
+          email: document.getElementById('your-email').value,
+          phone: document.getElementById('your-phone').value
+        },
+        items: cart,
+        subtotal,
+        deliveryFee: DELIVERY_FEE,
+        total
+      };
+
+      localStorage.setItem('cf_order', JSON.stringify(order));
+      clearCart();
+      window.location.href = 'invoice.html';
+    };
+
+    renderSummary();
+  </script>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header">
+      <span class="logo">Cupertino <span>Florist</span></span>
+      <button class="mobile-nav-close" id="mobileClose">&#10005;</button>
+    </div>
+    <div class="mobile-nav-search">
+      <form action="products.html" method="get">
+        <input type="text" name="search" placeholder="Search flowers...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a>
+      <a href="products.html?category=anniversary" class="sub">Anniversary</a>
+      <a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a>
+      <a href="products.html?category=new-baby" class="sub">New Baby</a>
+      <a href="products.html?category=sympathy" class="sub">Sympathy</a>
+      <a href="products.html?category=get-well" class="sub">Get Well</a>
+      <a href="products.html?category=congratulations" class="sub">Congratulations</a>
+      <a href="products.html?category=thank-you" class="sub">Thank You</a>
+      <a href="products.html?category=just-because" class="sub">Just Because</a>
+      <div class="group-label">Products</div>
+      <a href="products.html?category=roses" class="sub">Roses</a>
+      <a href="products.html?category=plants" class="sub">Plants</a>
+      <a href="products.html?category=tropicals" class="sub">Tropicals</a>
+      <a href="products.html?category=gifts" class="sub">Gifts</a>
+      <a href="products.html?category=sympathy-flowers" class="sub">Sympathy Flowers</a>
+      <a href="products.html?category=casket-sprays" class="sub">Casket Sprays</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a>
+      <a href="contact.html" class="sub">Contact Us</a>
+      <a href="delivery.html" class="sub">Delivery Info</a>
+      <a href="faq.html" class="sub">FAQ</a>
+      <a href="join-email.html" class="sub">Join Email List</a>
+      <a href="more-info.html" class="sub">More Info</a>
+      <a href="signin.html">Sign In</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <a href="tel:4082523560">(408) 252-3560</a>
+      <span>20530 Stevens Creek Blvd, Cupertino</span>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Our Email List — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .join-wrap { max-width: 560px; margin: 0 auto; padding: 56px 20px 60px; }
+    .join-header { text-align: center; margin-bottom: 36px; }
+    .join-header .icon { font-size: 52px; margin-bottom: 14px; }
+    .join-header h1 { font-family: Georgia, serif; font-size: 2rem; font-weight: normal; color: #2C2C2C; margin-bottom: 10px; }
+    .join-header h1 em { color: #C9848C; font-style: italic; }
+    .join-header p { color: #8A8A8A; font-size: 15px; line-height: 1.7; }
+    .join-card { background: white; border: 1px solid #E5E0D8; border-radius: 12px; padding: 32px; }
+    .check-group { margin: 18px 0; }
+    .check-group label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; padding: 12px; border: 1px solid #E5E0D8; border-radius: 8px; transition: all .15s; margin-bottom: 8px; }
+    .check-group label:hover { border-color: #6B8F71; background: #FAF8F4; }
+    .check-group input[type=checkbox] { width: 18px; height: 18px; flex-shrink: 0; accent-color: #6B8F71; margin-top: 2px; }
+    .check-label strong { display: block; font-size: 14px; color: #2C2C2C; margin-bottom: 2px; }
+    .check-label span { font-size: 12px; color: #8A8A8A; }
+    .privacy-note { font-size: 12px; color: #8A8A8A; text-align: center; margin-top: 14px; line-height: 1.6; }
+    .success-wrap { display: none; text-align: center; padding: 20px 0; }
+    .success-wrap .icon { font-size: 56px; margin-bottom: 14px; }
+    .success-wrap h2 { font-family: Georgia, serif; font-size: 1.6rem; font-weight: normal; margin-bottom: 10px; color: #6B8F71; }
+    .success-wrap p { color: #5A5A5A; line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Shop</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+        <li class="nav-item"><a href="about.html" class="active">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="join-wrap">
+    <div class="join-header">
+      <div class="icon">&#128140;</div>
+      <h1>Stay in the <em>loop</em></h1>
+      <p>Sign up for exclusive deals, seasonal specials, and flower care tips from Cupertino Florist — your local Silicon Valley florist for 40+ years.</p>
+    </div>
+
+    <div class="join-card">
+      <form id="emailForm">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="jane@example.com" required></div>
+
+        <div style="font-size:13px;font-weight:600;color:#2C2C2C;margin-bottom:10px;margin-top:4px">I'm interested in:</div>
+        <div class="check-group">
+          <label><input type="checkbox" checked><div class="check-label"><strong>Holiday Specials</strong><span>Valentine's Day, Mother's Day, Easter & more</span></div></label>
+          <label><input type="checkbox" checked><div class="check-label"><strong>Seasonal Collections</strong><span>New spring, summer, fall, and winter arrangements</span></div></label>
+          <label><input type="checkbox"><div class="check-label"><strong>Birthday Reminders</strong><span>Never forget an important birthday again</span></div></label>
+          <label><input type="checkbox"><div class="check-label"><strong>Exclusive Promotions</strong><span>Subscriber-only discounts and free delivery offers</span></div></label>
+          <label><input type="checkbox"><div class="check-label"><strong>Flower Care Tips</strong><span>How to keep your arrangements fresh longer</span></div></label>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:15px;margin-top:8px">&#9993; Subscribe</button>
+        <p class="privacy-note">We respect your privacy. You can unsubscribe at any time. We never share your information with third parties.</p>
+      </form>
+      <div class="success-wrap" id="successWrap">
+        <div class="icon">&#127800;</div>
+        <h2>You're subscribed!</h2>
+        <p>Thank you for joining our email list. Watch your inbox for fresh flowers, special deals, and seasonal inspiration.</p>
+        <a href="products.html" class="btn-primary" style="display:inline-block;margin-top:20px">Shop Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a><a href="products.html">Shop All</a><a href="contact.html">Contact</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a><a href="join-email.html" class="sub" style="color:#6B8F71;font-weight:700">Join Email List</a><a href="faq.html" class="sub">FAQ</a>
+      <a href="cart.html">&#128722; Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);})();
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('successWrap').style.display = 'block';
+    });
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned, serving Silicon Valley 40+ years.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=roses">Roses</a></li><li><a href="products.html?category=plants">Plants</a></li></ul></div>
+      <div class="footer-col"><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="delivery.html">Delivery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="join-email.html">Email List</a></li><li><a href="more-info.html">More Info</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span></div>
+  </footer>
+</body>
+</html>

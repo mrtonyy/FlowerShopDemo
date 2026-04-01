@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 36px; max-width: 1000px; margin: 0 auto; padding: 48px 20px 60px; }
+    .contact-info-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 28px; height: fit-content; }
+    .contact-info-card h2 { font-family: Georgia, serif; font-size: 1.4rem; font-weight: normal; color: #2C2C2C; margin-bottom: 24px; }
+    .contact-block { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #E5E0D8; }
+    .contact-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .contact-block h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #8A8A8A; margin-bottom: 10px; font-weight: 600; }
+    .contact-block p, .contact-block a { font-size: 15px; color: #5A5A5A; line-height: 1.7; display: block; text-decoration: none; }
+    .contact-block a:hover { color: #6B8F71; }
+    .contact-block .big-phone { font-size: 1.4rem; font-weight: 700; color: #6B8F71; font-family: Georgia, serif; }
+    .map-link { display: inline-flex; align-items: center; gap: 6px; background: #FAF8F4; border: 1px solid #E5E0D8; border-radius: 4px; padding: 8px 14px; font-size: 13px; color: #6B8F71; font-weight: 600; text-decoration: none; margin-top: 10px; transition: all .2s; }
+    .map-link:hover { background: #6B8F71; color: white; border-color: #6B8F71; }
+    .form-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 28px; }
+    .form-card h2 { font-family: Georgia, serif; font-size: 1.4rem; font-weight: normal; color: #2C2C2C; margin-bottom: 24px; }
+    .success-msg { display: none; background: #f0f7f1; border: 1px solid #6B8F71; border-radius: 6px; padding: 16px 20px; color: #3a6b42; font-size: 15px; margin-top: 16px; }
+    @media (max-width: 700px) { .contact-layout { grid-template-columns: 1fr; padding: 24px 16px 40px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">&#128269;</button></form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Occasion <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=birthday">Birthday</a><a href="products.html?category=anniversary">Anniversary</a><a href="products.html?category=love-romance">Love &amp; Romance</a><a href="products.html?category=new-baby">New Baby</a><a href="products.html?category=sympathy">Sympathy</a><a href="products.html?category=get-well">Get Well</a><a href="products.html?category=congratulations">Congratulations</a></div></li>
+        <li class="nav-item"><a href="products.html">Products <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=roses">Roses</a><a href="products.html?category=plants">Plants</a><a href="products.html?category=tropicals">Tropicals</a><a href="products.html?category=gifts">Gifts</a></div></li>
+        <li class="nav-item"><a href="contact.html" class="active">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item"><a href="about.html">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="breadcrumb" style="padding:14px 40px;background:white;border-bottom:1px solid #E5E0D8;font-size:12px;color:#8A8A8A">
+    <a href="index.html" style="color:#8A8A8A;text-decoration:none">Home</a> <span>›</span> Contact Us
+  </div>
+
+  <div class="contact-layout">
+    <aside>
+      <div class="contact-info-card">
+        <h2>Get In Touch</h2>
+        <div class="contact-block">
+          <h3>In Person</h3>
+          <p>Cupertino Florist, Inc.</p>
+          <p>7289 Coronado Dr</p>
+          <p>San Jose, CA 95129</p>
+          <a href="https://maps.google.com/?q=7289+Coronado+Dr+San+Jose+CA+95129" target="_blank" class="map-link">&#128205; Get Directions</a>
+        </div>
+        <div class="contact-block">
+          <h3>By Telephone</h3>
+          <a href="tel:4082523560" class="big-phone">(408) 252-3560</a>
+          <a href="tel:8882523560" style="color:#8A8A8A;font-size:14px;margin-top:4px">Toll-Free: (888) 252-3560</a>
+        </div>
+        <div class="contact-block">
+          <h3>Store Hours</h3>
+          <p>Monday – Saturday: 9:00 AM – 6:00 PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div class="contact-block">
+          <h3>Same-Day Delivery</h3>
+          <p>Order by our cut-off time for same-day delivery throughout Silicon Valley.</p>
+          <a href="delivery.html" style="color:#6B8F71;font-weight:600;font-size:14px;margin-top:6px">View delivery areas →</a>
+        </div>
+      </div>
+    </aside>
+    <div>
+      <div class="form-card">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group"><label>Your Name *</label><input type="text" required placeholder="Jane Smith"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div class="form-group"><label>Email *</label><input type="email" required placeholder="jane@email.com"></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="(408) 555-0100"></div>
+          </div>
+          <div class="form-group"><label>Subject</label>
+            <select>
+              <option>General Question</option>
+              <option>Order Inquiry</option>
+              <option>Custom Arrangement</option>
+              <option>Delivery Question</option>
+              <option>Wedding / Event Flowers</option>
+              <option>Sympathy / Funeral Flowers</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message *</label><textarea required placeholder="How can we help you?" rows="5"></textarea></div>
+          <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:15px">Send Message</button>
+        </form>
+        <div class="success-msg" id="successMsg">&#10003; Thank you! We'll get back to you within one business day.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <div class="mobile-nav-search"><form action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">Search</button></form></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <div class="group-label">By Occasion</div>
+      <a href="products.html?category=birthday" class="sub">Birthday</a><a href="products.html?category=love-romance" class="sub">Love &amp; Romance</a><a href="products.html?category=sympathy" class="sub">Sympathy</a><a href="products.html?category=get-well" class="sub">Get Well</a>
+      <div class="group-label">Products</div>
+      <a href="products.html?category=roses" class="sub">Roses</a><a href="products.html?category=plants" class="sub">Plants</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub">About Us</a><a href="contact.html" class="sub" style="color:#6B8F71;font-weight:700">Contact Us</a><a href="delivery.html" class="sub">Delivery Info</a><a href="faq.html" class="sub">FAQ</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a><span>7289 Coronado Dr, San Jose, CA</span></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){
+      var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');
+      function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}
+      function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}
+      btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);
+    })();
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    });
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned floral shop serving the Silicon Valley since the 1980s.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>By Occasion</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=love-romance">Love &amp; Romance</a></li><li><a href="products.html?category=sympathy">Sympathy</a></li></ul></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html?category=roses">Roses</a></li><li><a href="products.html?category=plants">Plants</a></li><li><a href="products.html?category=gifts">Gifts</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="delivery.html">Delivery Info</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span><span><a href="faq.html">FAQ</a> · <a href="more-info.html">More Info</a></span></div>
+  </footer>
+</body>
+</html>

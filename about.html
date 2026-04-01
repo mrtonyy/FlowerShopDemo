@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Cupertino Florist</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    .about-hero { background: linear-gradient(135deg, #2c3a2e, #4a6b4f); color: white; padding: 56px 40px; text-align: center; }
+    .about-hero h1 { font-family: Georgia, serif; font-size: 2.4rem; font-weight: normal; margin-bottom: 12px; }
+    .about-hero h1 em { color: #C9848C; }
+    .about-hero p { font-size: 1.05rem; opacity: .85; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .content-wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px 60px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; }
+    .story-img { background: linear-gradient(135deg, #e8f0ea, #f5eef5); border-radius: 12px; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .story-text h2 { font-family: Georgia, serif; font-size: 1.6rem; font-weight: normal; color: #2C2C2C; margin-bottom: 14px; }
+    .story-text p { color: #5A5A5A; font-size: 15px; line-height: 1.8; margin-bottom: 14px; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+    .stat-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 24px; text-align: center; }
+    .stat-card .num { font-family: Georgia, serif; font-size: 2.4rem; color: #6B8F71; margin-bottom: 6px; }
+    .stat-card .lbl { font-size: 13px; color: #8A8A8A; text-transform: uppercase; letter-spacing: 1px; }
+    .info-card { background: white; border: 1px solid #E5E0D8; border-radius: 8px; padding: 28px; margin-bottom: 20px; }
+    .info-card h2 { font-family: Georgia, serif; font-size: 1.3rem; font-weight: normal; color: #2C2C2C; margin-bottom: 18px; }
+    .hours-table { width: 100%; }
+    .hours-table tr td { padding: 9px 0; font-size: 14px; color: #5A5A5A; border-bottom: 1px solid #F0EDE8; }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table td:first-child { font-weight: 600; color: #2C2C2C; width: 140px; }
+    .hours-table td:last-child { text-align: right; }
+    .products-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .products-list span { background: #FAF8F4; border: 1px solid #E5E0D8; border-radius: 16px; padding: 5px 14px; font-size: 13px; color: #5A5A5A; }
+    @media (max-width: 640px) { .story-grid { grid-template-columns: 1fr; } .stats-row { grid-template-columns: 1fr 1fr; } .about-hero { padding: 40px 20px; } .about-hero h1 { font-size: 1.8rem; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left"><span>&#128205; 7289 Coronado Dr, San Jose, CA 95129</span><a href="tel:4082523560">&#128222; (408) 252-3560</a></div>
+    <div class="topbar-right">
+      <form class="topbar-search" action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">&#128269;</button></form>
+      <a href="signin.html" class="topbar-icon-link">&#128100; Sign In</a>
+      <a href="cart.html" class="topbar-icon-link cart-link">&#128722; Cart <span class="cart-count">0</span></a>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Cupertino <span>Florist</span></a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="index.html">Home</a></li>
+        <li class="nav-item"><a href="products.html">Occasion <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=birthday">Birthday</a><a href="products.html?category=anniversary">Anniversary</a><a href="products.html?category=love-romance">Love &amp; Romance</a><a href="products.html?category=new-baby">New Baby</a><a href="products.html?category=sympathy">Sympathy</a><a href="products.html?category=get-well">Get Well</a></div></li>
+        <li class="nav-item"><a href="products.html">Products <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="products.html?category=roses">Roses</a><a href="products.html?category=plants">Plants</a><a href="products.html?category=tropicals">Tropicals</a></div></li>
+        <li class="nav-item"><a href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a href="delivery.html">Delivery Info</a></li>
+        <li class="nav-item"><a href="about.html" class="active">Our Company <span class="arrow">&#9660;</span></a><div class="dropdown"><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="more-info.html">More Information</a><a href="join-email.html">Join Email List</a></div></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="about-hero">
+    <h1>About <em>Cupertino Florist</em></h1>
+    <p>A family-owned floral shop rooted in the Silicon Valley community for over 40 years. We know flowers — and we know how to help you express your feelings with them.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="story-grid">
+      <div class="story-img">🌷</div>
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>Cupertino Florist is a family owned and operated business that has been serving the Silicon Valley with unique and creative floral designs and outstanding customer service for over 40 years.</p>
+        <p>From intimate birthday bouquets to elaborate wedding arrangements, our experienced staff can assist you in making just the right choice to express your thoughts through flowers or any of the other products we offer.</p>
+        <p>Whether the occasion is happy or sad, we know it's important to you that the appropriate gift be sent. We can help. We promise to exceed your expectations!</p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="num">40+</div><div class="lbl">Years Serving Silicon Valley</div></div>
+      <div class="stat-card"><div class="num">19</div><div class="lbl">Cities Delivered</div></div>
+      <div class="stat-card"><div class="num">100%</div><div class="lbl">Hand Delivered</div></div>
+    </div>
+
+    <div class="info-card">
+      <h2>Store Hours</h2>
+      <table class="hours-table">
+        <tr><td>Monday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Thursday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Sunday</td><td>Closed</td></tr>
+      </table>
+      <p style="font-size:13px;color:#8A8A8A;margin-top:14px">Closed on: Presidents Day, Memorial Day, Independence Day, Labor Day</p>
+    </div>
+
+    <div class="info-card">
+      <h2>Products We Offer</h2>
+      <div class="products-list">
+        <span>Fresh Flowers — Domestic</span><span>Fresh Flowers — Exotic</span>
+        <span>Fresh Flowers — Roses</span><span>Fresh Flowers — Orchids</span>
+        <span>Plants — Green</span><span>Plants — Blooming</span>
+        <span>Plants — Dish / European</span><span>Arrangements — Traditional</span>
+        <span>Arrangements — High-Style</span><span>Arrangements — Exotic</span>
+        <span>Arrangements — Funeral</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>Order Early For These Holidays</h2>
+      <div class="products-list">
+        <span>&#10084; Valentine's Day</span><span>&#127800; Easter</span><span>&#128552; Mother's Day</span>
+        <span>&#127942; Father's Day</span><span>&#127831; Thanksgiving</span><span>&#127876; Christmas</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px">
+      <a href="products.html" class="btn-primary" style="margin-right:12px;font-size:15px">Shop Arrangements</a>
+      <a href="contact.html" class="btn-outline" style="font-size:15px">Contact Us</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="mobile-nav-header"><span class="logo">Cupertino <span>Florist</span></span><button class="mobile-nav-close" id="mobileClose">&#10005;</button></div>
+    <div class="mobile-nav-search"><form action="products.html" method="get"><input type="text" name="search" placeholder="Search flowers..."><button type="submit">Search</button></form></div>
+    <nav class="mobile-nav-links">
+      <a href="index.html">Home</a><a href="products.html">Shop All</a>
+      <div class="group-label">Company</div>
+      <a href="about.html" class="sub" style="color:#6B8F71;font-weight:700">About Us</a><a href="contact.html" class="sub">Contact Us</a><a href="delivery.html" class="sub">Delivery Info</a><a href="faq.html" class="sub">FAQ</a><a href="join-email.html" class="sub">Join Email List</a>
+      <a href="cart.html">&#128722; View Cart</a>
+    </nav>
+    <div class="mobile-nav-footer"><a href="tel:4082523560">(408) 252-3560</a><span>7289 Coronado Dr, San Jose, CA</span></div>
+  </div>
+  <script src="js/cart.js"></script>
+  <script>
+    (function(){var btn=document.getElementById('navHamburger'),overlay=document.getElementById('mobileOverlay'),drawer=document.getElementById('mobileDrawer'),cls=document.getElementById('mobileClose');function open(){btn.classList.add('open');overlay.classList.add('open');drawer.classList.add('open');document.body.style.overflow='hidden';}function close(){btn.classList.remove('open');overlay.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}btn&&btn.addEventListener('click',open);cls&&cls.addEventListener('click',close);overlay&&overlay.addEventListener('click',close);})();
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Cupertino <span>Florist</span></div><p>Family-owned floral shop serving the Silicon Valley since the 1980s.</p><a href="tel:8882523560" class="footer-phone">(888) 252-3560</a></div>
+      <div class="footer-col"><h4>By Occasion</h4><ul><li><a href="products.html?category=birthday">Birthday</a></li><li><a href="products.html?category=love-romance">Love &amp; Romance</a></li><li><a href="products.html?category=sympathy">Sympathy</a></li></ul></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html?category=roses">Roses</a></li><li><a href="products.html?category=plants">Plants</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="delivery.html">Delivery</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cupertino Florist, Inc.</span></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cupertino Florist — Mockup 3: Vibrant Modern</title>
+<style>
+  /* ============================================================
+     MOCKUP 3: VIBRANT MODERN
+     Palette: White #FFFFFF, Purple #9966CC (original),
+     Pink #F06292, Coral #FF7043, Teal #26A69A,
+     Near-Black #1A1A2E, Soft Gray #F5F5F7
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:  #9966CC;
+    --purple2: #7B46AA;
+    --pink:    #F06292;
+    --coral:   #FF7043;
+    --teal:    #26A69A;
+    --dark:    #1A1A2E;
+    --gray:    #666;
+    --lgray:   #999;
+    --soft:    #F5F5F7;
+    --white:   #FFFFFF;
+    --border:  #E8E8EE;
+  }
+  body { font-family: system-ui, -apple-system, sans-serif; background: var(--soft); color: var(--dark); }
+
+  /* ANNOUNCEMENT BAR */
+  .announce {
+    background: var(--purple);
+    color: white; text-align: center;
+    padding: 10px 20px; font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .announce a { color: rgba(255,255,255,.8); text-decoration: underline; }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--white);
+    padding: 10px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-left { font-size: 13px; color: var(--lgray); }
+  .topbar-left strong { color: var(--purple); }
+  .topbar-right { display: flex; gap: 12px; align-items: center; }
+  .search-wrap {
+    display: flex; align-items: center;
+    background: var(--soft); border: 1.5px solid var(--border);
+    border-radius: 24px; overflow: hidden;
+    transition: border-color .2s;
+  }
+  .search-wrap:focus-within { border-color: var(--purple); }
+  .search-wrap input {
+    background: transparent; border: none;
+    padding: 8px 16px; font-size: 13px;
+    outline: none; width: 200px; color: var(--dark);
+  }
+  .search-wrap button {
+    background: var(--purple); border: none; color: white;
+    padding: 8px 16px; cursor: pointer; font-size: 13px;
+    border-radius: 0 24px 24px 0;
+  }
+  .topbar-btn {
+    padding: 8px 18px; border-radius: 20px;
+    font-size: 13px; cursor: pointer; font-weight: 600;
+    text-decoration: none; display: inline-block;
+    transition: all .2s;
+  }
+  .topbar-btn.outline {
+    border: 1.5px solid var(--border); color: var(--gray);
+    background: none;
+  }
+  .topbar-btn.outline:hover { border-color: var(--purple); color: var(--purple); }
+  .topbar-btn.filled {
+    background: var(--purple); color: white; border: none;
+  }
+  .topbar-btn.filled:hover { background: var(--purple2); }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none; padding: 14px 0;
+  }
+  .nav-logo-circle {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; box-shadow: 0 4px 12px rgba(153,102,204,.3);
+  }
+  .nav-logo-name {
+    font-size: 20px; font-weight: 800; color: var(--dark);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo-name span { color: var(--purple); }
+  .nav-logo-sub {
+    font-size: 11px; color: var(--lgray);
+    display: block; letter-spacing: 0.5px;
+  }
+  .nav-links { display: flex; }
+  .nav-item { position: relative; }
+  .nav-item > a {
+    display: flex; align-items: center; gap: 4px;
+    padding: 18px 16px; color: var(--gray);
+    text-decoration: none; font-size: 14px;
+    font-weight: 600; transition: color .2s;
+  }
+  .nav-item > a:hover { color: var(--purple); }
+  .nav-item > a.active { color: var(--purple); }
+  .nav-item > a.active::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 3px; background: var(--purple);
+    border-radius: 3px 3px 0 0;
+  }
+  .nav-chevron { font-size: 10px; opacity: .6; }
+  .dropdown {
+    display: none; position: absolute; top: 100%; left: 0;
+    background: white; min-width: 240px;
+    border-radius: 0 0 12px 12px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--purple);
+    box-shadow: 0 12px 32px rgba(0,0,0,.1);
+    z-index: 200; padding: 10px 0;
+  }
+  .nav-item:hover .dropdown { display: block; }
+  .dropdown a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 20px;
+    color: var(--gray); text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    transition: all .15s;
+  }
+  .dropdown a:hover { color: var(--purple); background: rgba(153,102,204,.05); }
+  .dropdown-divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+  /* HERO */
+  .hero {
+    background: white;
+    padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 560px; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 60px 0;
+    padding-right: 60px;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(153,102,204,.1); color: var(--purple);
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px; width: fit-content;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.05;
+    color: var(--dark); margin-bottom: 20px;
+    letter-spacing: -1.5px;
+  }
+  .hero h1 .accent { color: var(--purple); }
+  .hero h1 .accent2 { color: var(--pink); }
+  .hero-p {
+    font-size: 16px; line-height: 1.7; color: var(--lgray);
+    margin-bottom: 36px; max-width: 440px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-hero-primary {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white; border: none;
+    padding: 14px 28px; border-radius: 30px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 6px 20px rgba(153,102,204,.35);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(153,102,204,.45);
+  }
+  .btn-hero-secondary {
+    background: var(--soft); color: var(--dark);
+    border: none; padding: 14px 28px; border-radius: 30px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background .2s;
+  }
+  .btn-hero-secondary:hover { background: var(--border); }
+  .hero-trust {
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--lgray);
+  }
+  .trust-icon { font-size: 18px; }
+  .hero-right {
+    background: linear-gradient(160deg, rgba(153,102,204,.08) 0%, rgba(240,98,146,.08) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-flower-main { font-size: 120px; filter: drop-shadow(0 20px 40px rgba(0,0,0,.1)); }
+  .hero-float {
+    position: absolute;
+    background: white; border-radius: 16px;
+    padding: 12px 16px; box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600;
+  }
+  .hero-float.f1 { top: 60px; left: 30px; }
+  .hero-float.f2 { bottom: 70px; right: 20px; }
+  .hero-float.f3 { top: 50%; right: 20px; transform: translateY(-50%); }
+  .hero-float .fi { font-size: 24px; }
+  .hero-float .ft { line-height: 1.3; }
+  .hero-float .ft small { display: block; color: var(--lgray); font-weight: 400; font-size: 11px; }
+
+  /* OCCASION CARDS */
+  .occasions {
+    padding: 60px 40px;
+    background: var(--soft);
+  }
+  .section-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-size: 28px; font-weight: 800;
+    color: var(--dark); letter-spacing: -0.5px;
+  }
+  .section-title span { color: var(--purple); }
+  .see-all {
+    font-size: 14px; font-weight: 600; color: var(--purple);
+    text-decoration: none;
+  }
+  .see-all:hover { text-decoration: underline; }
+  .occasions-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+  }
+  .occasion-card {
+    background: white; border-radius: 16px;
+    padding: 20px 14px; text-align: center;
+    cursor: pointer; text-decoration: none; color: var(--dark);
+    border: 2px solid transparent;
+    transition: all .2s; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+  .occasion-card:hover {
+    border-color: var(--purple);
+    box-shadow: 0 8px 24px rgba(153,102,204,.15);
+    transform: translateY(-3px);
+  }
+  .occasion-card.active {
+    border-color: var(--purple);
+    background: rgba(153,102,204,.05);
+  }
+  .occasion-emoji { font-size: 36px; margin-bottom: 10px; display: block; }
+  .occasion-label { font-size: 12px; font-weight: 700; color: var(--dark); line-height: 1.3; }
+
+  /* PRODUCTS */
+  .products-section { padding: 60px 40px; background: white; }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .product-card {
+    background: var(--soft); border-radius: 16px;
+    overflow: hidden; cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    border: 1.5px solid transparent;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,.1);
+    border-color: rgba(153,102,204,.2);
+  }
+  .product-img {
+    width: 100%; height: 190px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative;
+  }
+  .product-img.p1 { background: linear-gradient(135deg, #fce4ec, #ffd6e7); }
+  .product-img.p2 { background: linear-gradient(135deg, #e8f5e9, #dcedc8); }
+  .product-img.p3 { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+  .product-img.p4 { background: linear-gradient(135deg, #fff9c4, #ffecb3); }
+  .product-tag {
+    position: absolute; top: 12px; left: 12px;
+    padding: 4px 10px; border-radius: 10px;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .tag-new { background: var(--purple); color: white; }
+  .tag-pop { background: var(--pink); color: white; }
+  .product-info { padding: 16px; }
+  .product-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; line-height: 1.3; }
+  .product-type { font-size: 11px; color: var(--teal); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .product-price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .product-price { font-size: 18px; font-weight: 800; color: var(--dark); }
+  .product-price span { font-size: 12px; font-weight: 400; color: var(--lgray); }
+  .sizes { display: flex; gap: 6px; margin-bottom: 12px; }
+  .sz {
+    background: white; border: 1.5px solid var(--border);
+    border-radius: 8px; padding: 4px 10px;
+    font-size: 11px; font-weight: 700; cursor: pointer;
+    color: var(--gray); transition: all .15s;
+  }
+  .sz:hover, .sz.active {
+    border-color: var(--purple); color: var(--purple);
+    background: rgba(153,102,204,.05);
+  }
+  .add-btn {
+    width: 100%; padding: 11px;
+    background: var(--purple); color: white; border: none;
+    border-radius: 10px; font-size: 13px; font-weight: 700;
+    cursor: pointer; transition: background .2s;
+  }
+  .add-btn:hover { background: var(--purple2); }
+
+  /* PROMO CARDS -->
+  .promos { padding: 0 40px 60px; }
+  .promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .promo-card {
+    border-radius: 20px; padding: 36px 32px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: space-between; min-height: 200px;
+  }
+  .promo-card.p-purple {
+    background: linear-gradient(135deg, var(--purple) 0%, #7B46AA 100%);
+    color: white;
+  }
+  .promo-card.p-pink {
+    background: linear-gradient(135deg, var(--pink) 0%, #E91E63 100%);
+    color: white;
+  }
+  .promo-bg-emoji {
+    position: absolute; right: 24px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px; opacity: .2;
+  }
+  .promo-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; opacity: .8; text-transform: uppercase; margin-bottom: 12px; }
+  .promo-title { font-size: 26px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+  .promo-btn {
+    background: rgba(255,255,255,.2); color: white;
+    border: 2px solid rgba(255,255,255,.5);
+    padding: 10px 22px; border-radius: 20px;
+    font-size: 13px; font-weight: 700;
+    cursor: pointer; width: fit-content;
+    text-decoration: none; display: inline-block;
+    backdrop-filter: blur(4px); transition: background .2s;
+  }
+  .promo-btn:hover { background: rgba(255,255,255,.3); }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--dark); color: white;
+    padding: 60px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center;
+  }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat-box {
+    background: rgba(255,255,255,.06); border-radius: 16px;
+    padding: 24px; border: 1px solid rgba(255,255,255,.1);
+  }
+  .stat-box .num {
+    font-size: 40px; font-weight: 900;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 4px;
+  }
+  .stat-box .lbl { font-size: 13px; color: rgba(255,255,255,.5); }
+  .about-content { }
+  .about-tag-v {
+    display: inline-block;
+    background: rgba(153,102,204,.2); color: var(--purple);
+    padding: 5px 14px; border-radius: 12px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .about-title {
+    font-size: 36px; font-weight: 900; line-height: 1.1;
+    margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .about-text {
+    font-size: 15px; line-height: 1.7;
+    color: rgba(255,255,255,.6); margin-bottom: 28px;
+  }
+  .about-cta {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white; border: none; padding: 14px 28px;
+    border-radius: 30px; font-size: 14px; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    box-shadow: 0 6px 20px rgba(153,102,204,.4);
+  }
+
+  /* FEATURES BAR */
+  .features-bar {
+    background: var(--soft); padding: 32px 40px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .feature {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 20px; background: white; border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .fi1 { background: rgba(153,102,204,.1); }
+  .fi2 { background: rgba(240,98,146,.1); }
+  .fi3 { background: rgba(38,166,154,.1); }
+  .fi4 { background: rgba(255,112,67,.1); }
+  .feature-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .feature-text span { font-size: 12px; color: var(--lgray); line-height: 1.4; }
+
+  /* DELIVERY + HOURS */
+  .info-section {
+    padding: 60px 40px; background: white;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  }
+  .info-block { background: var(--soft); border-radius: 20px; padding: 32px; }
+  .info-block-title {
+    font-size: 18px; font-weight: 800; color: var(--dark);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .info-block-title .icon { font-size: 24px; }
+  .hours-table { width: 100%; }
+  .hours-table tr td {
+    padding: 8px 0; font-size: 14px; color: var(--gray);
+    border-bottom: 1px solid var(--border);
+  }
+  .hours-table tr:last-child td { border-bottom: none; }
+  .hours-table td:first-child { font-weight: 700; color: var(--dark); }
+  .hours-table td:last-child { text-align: right; }
+  .delivery-list { list-style: none; }
+  .delivery-list li {
+    padding: 9px 0; font-size: 14px; color: var(--gray);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .delivery-list li:last-child { border-bottom: none; }
+  .delivery-list li::before { content: "✓"; color: var(--teal); font-weight: 800; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.6);
+    padding: 60px 40px 28px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 50px;
+  }
+  .footer-logo-v {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .footer-logo-v .circle {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .footer-logo-v span { font-size: 18px; font-weight: 800; color: white; }
+  .footer-brand-text {
+    font-size: 13px; line-height: 1.7; margin-bottom: 16px;
+  }
+  .footer-tagline-v {
+    font-size: 12px; font-style: italic;
+    color: rgba(153,102,204,.8);
+  }
+  .footer-contact {
+    margin-top: 16px;
+  }
+  .footer-contact a {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--purple); text-decoration: none;
+    font-size: 16px; font-weight: 700;
+  }
+  .footer-col h4 {
+    color: white; font-size: 12px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,.5);
+    text-decoration: none; font-size: 13px;
+    padding: 5px 0; transition: color .2s;
+  }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 24px;
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: rgba(255,255,255,.3);
+  }
+  .footer-bottom a { color: rgba(255,255,255,.3); text-decoration: none; }
+  .footer-bottom a:hover { color: rgba(255,255,255,.6); }
+
+  /* PAGE LABEL */
+  .page-label {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white; text-align: center;
+    padding: 10px; font-size: 13px;
+    font-weight: 700; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-label">MOCKUP 3 — VIBRANT MODERN</div>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  🌸 Spring Collection is here! &nbsp;·&nbsp; Same-day delivery available across Silicon Valley &nbsp;·&nbsp; <a href="#">Order Now →</a>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    📍 7289 Coronado Dr, San Jose, CA &nbsp;·&nbsp; <strong>888-252-3560</strong> &nbsp;·&nbsp; Mon–Sat 9am–6pm
+  </div>
+  <div class="topbar-right">
+    <div class="search-wrap">
+      <input type="text" placeholder="Search flowers, occasions...">
+      <button>🔍</button>
+    </div>
+    <a href="#" class="topbar-btn outline">Sign In</a>
+    <a href="#" class="topbar-btn filled">🛒 Cart (0)</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circle">🌸</div>
+    <div>
+      <div class="nav-logo-name">Cupertino <span>Florist</span></div>
+      <span class="nav-logo-sub">Silicon Valley's Local Florist</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <div class="nav-item"><a href="#" class="active">Home</a></div>
+    <div class="nav-item">
+      <a href="#">Occasion <span class="nav-chevron">▾</span></a>
+      <div class="dropdown">
+        <a href="#">🐣 Easter</a>
+        <a href="#">👩‍💼 Administrative Professionals' Day</a>
+        <a href="#">🌸 Spring</a>
+        <div class="dropdown-divider"></div>
+        <a href="#">💑 Anniversary</a>
+        <a href="#">🌷 Any Occasion</a>
+        <a href="#">🎂 Birthday</a>
+        <a href="#">🎉 Congratulations</a>
+        <a href="#">💪 For Him</a>
+        <a href="#">🏥 Get Well</a>
+        <a href="#">💝 Just Because</a>
+        <a href="#">❤️ Love &amp; Romance</a>
+        <a href="#">👶 New Baby</a>
+        <a href="#">🙏 Sympathy</a>
+        <a href="#">🙌 Thank You</a>
+        <a href="#">🇺🇸 Patriotic</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#">Products <span class="nav-chevron">▾</span></a>
+      <div class="dropdown">
+        <a href="#">🕊️ Casket Sprays</a>
+        <a href="#">🎁 Gifts</a>
+        <a href="#">🌿 Plants</a>
+        <a href="#">🌹 Roses</a>
+        <a href="#">🌾 Standing Sprays</a>
+        <a href="#">💐 Sympathy Flowers</a>
+        <a href="#">🌺 Tropicals</a>
+        <a href="#">🏵️ Wreaths, Hearts, Crosses</a>
+        <a href="#">🪴 Sympathy Vases</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">Contact</a></div>
+    <div class="nav-item"><a href="#">Delivery</a></div>
+    <div class="nav-item">
+      <a href="#">Company <span class="nav-chevron">▾</span></a>
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">More Information</a>
+        <a href="#">Join Email List</a>
+        <a href="#">Refer a Friend</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">🌿 Same-day delivery · Silicon Valley</div>
+    <h1>Fresh flowers<br>for <span class="accent">every</span><br><span class="accent2">occasion</span></h1>
+    <p class="hero-p">Cupertino Florist has been crafting beautiful floral arrangements for Silicon Valley for 40+ years. Family owned, locally loved — we deliver happiness to your doorstep.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-hero-primary">Shop Arrangements</a>
+      <a href="#" class="btn-hero-secondary">Browse by Occasion</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-icon">⭐</span> 40+ Years Trusted</div>
+      <div class="trust-item"><span class="trust-icon">🚐</span> Same-Day Delivery</div>
+      <div class="trust-item"><span class="trust-icon">🌿</span> Always Fresh</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-flower-main">💐</div>
+    <div class="hero-float f1">
+      <div class="fi">🌹</div>
+      <div class="ft">
+        <strong>Roses</strong>
+        <small>From $45.00</small>
+      </div>
+    </div>
+    <div class="hero-float f2">
+      <div class="fi">🚐</div>
+      <div class="ft">
+        <strong>Same Day!</strong>
+        <small>Order by cutoff</small>
+      </div>
+    </div>
+    <div class="hero-float f3">
+      <div class="fi">🎁</div>
+      <div class="ft">
+        <strong>Gifts &amp; Plants</strong>
+        <small>In stock now</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="occasions">
+  <div class="section-header">
+    <h2 class="section-title">Shop by <span>Occasion</span></h2>
+    <a href="#" class="see-all">See all occasions →</a>
+  </div>
+  <div class="occasions-grid">
+    <a href="#" class="occasion-card active">
+      <span class="occasion-emoji">🎂</span>
+      <div class="occasion-label">Birthday</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">❤️</span>
+      <div class="occasion-label">Love &amp; Romance</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">💑</span>
+      <div class="occasion-label">Anniversary</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">👶</span>
+      <div class="occasion-label">New Baby</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🙏</span>
+      <div class="occasion-label">Sympathy</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🎉</span>
+      <div class="occasion-label">Congratulations</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🏥</span>
+      <div class="occasion-label">Get Well</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🙌</span>
+      <div class="occasion-label">Thank You</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🌸</span>
+      <div class="occasion-label">Just Because</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🌿</span>
+      <div class="occasion-label">Plants</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🌹</span>
+      <div class="occasion-label">Roses</div>
+    </a>
+    <a href="#" class="occasion-card">
+      <span class="occasion-emoji">🌺</span>
+      <div class="occasion-label">Tropicals</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section">
+  <div class="section-header">
+    <h2 class="section-title">Popular <span>Arrangements</span></h2>
+    <a href="#" class="see-all">View all products →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img p1">
+        💐
+        <span class="product-tag tag-new">New</span>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Blooming Butterfly Orchids</div>
+        <div class="product-type">Hand Delivery</div>
+        <div class="product-price-row">
+          <div class="product-price">$75 <span>· up to $120</span></div>
+        </div>
+        <div class="sizes">
+          <button class="sz active">S</button>
+          <button class="sz">M</button>
+          <button class="sz">L</button>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p2">
+        🌸
+        <span class="product-tag tag-pop">Popular</span>
+      </div>
+      <div class="product-info">
+        <div class="product-name">With All My Heart</div>
+        <div class="product-type">Hand Delivery</div>
+        <div class="product-price-row">
+          <div class="product-price">$95 <span>· up to $140</span></div>
+        </div>
+        <div class="sizes">
+          <button class="sz active">S</button>
+          <button class="sz">M</button>
+          <button class="sz">L</button>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p3">🌺</div>
+      <div class="product-info">
+        <div class="product-name">Fantastic Tropicals</div>
+        <div class="product-type">Hand Delivery</div>
+        <div class="product-price-row">
+          <div class="product-price">$90 <span>· up to $120</span></div>
+        </div>
+        <div class="sizes">
+          <button class="sz active">S</button>
+          <button class="sz">M</button>
+          <button class="sz">L</button>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p4">🌻</div>
+      <div class="product-info">
+        <div class="product-name">Teleflora's Party Perfect</div>
+        <div class="product-type">Hand Delivery</div>
+        <div class="product-price-row">
+          <div class="product-price">$70 <span>· up to $95</span></div>
+        </div>
+        <div class="sizes">
+          <button class="sz active">S</button>
+          <button class="sz">M</button>
+          <button class="sz">L</button>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO CARDS -->
+<div class="promos">
+  <div class="promo-grid">
+    <div class="promo-card p-purple">
+      <div class="promo-bg-emoji">💐</div>
+      <div>
+        <div class="promo-label">Spring Sale</div>
+        <div class="promo-title">Fresh Spring<br>Arrangements</div>
+      </div>
+      <a href="#" class="promo-btn">Shop Spring →</a>
+    </div>
+    <div class="promo-card p-pink">
+      <div class="promo-bg-emoji">🌹</div>
+      <div>
+        <div class="promo-label">Always Available</div>
+        <div class="promo-title">Sympathy &amp;<br>Memorial Flowers</div>
+      </div>
+      <a href="#" class="promo-btn">View Collection →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="feature">
+    <div class="feature-icon fi1">🚐</div>
+    <div class="feature-text">
+      <strong>Same-Day Delivery</strong>
+      <span>Order by cutoff time for delivery today</span>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon fi2">🌷</div>
+    <div class="feature-text">
+      <strong>Always Fresh</strong>
+      <span>Daily sourced local and exotic blooms</span>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon fi3">👨‍👩‍👧</div>
+    <div class="feature-text">
+      <strong>Family Owned</strong>
+      <span>40+ years serving Silicon Valley</span>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon fi4">🎨</div>
+    <div class="feature-text">
+      <strong>Custom Designs</strong>
+      <span>Traditional, high-style, and exotic</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-strip">
+  <div class="about-stats">
+    <div class="stat-box">
+      <div class="num">40+</div>
+      <div class="lbl">Years in Silicon Valley</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">15+</div>
+      <div class="lbl">Cities Delivered</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">100+</div>
+      <div class="lbl">Zip Codes Covered</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">100%</div>
+      <div class="lbl">Hand Delivered</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="about-tag-v">Our Story</div>
+    <h2 class="about-title">Silicon Valley's most trusted local florist</h2>
+    <p class="about-text">Cupertino Florist is a family-owned business that has been serving the community with unique and creative floral designs and outstanding customer service for over 40 years. We know it's important that the right arrangement arrives at the right moment — and we make that happen, every day.</p>
+    <a href="#" class="about-cta">Learn More About Us</a>
+  </div>
+</section>
+
+<!-- HOURS & DELIVERY -->
+<section class="info-section">
+  <div class="info-block">
+    <div class="info-block-title"><span class="icon">🕐</span> Store Hours</div>
+    <table class="hours-table">
+      <tr><td>Monday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Wednesday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Thursday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+      <tr><td>Sunday</td><td>Closed</td></tr>
+    </table>
+  </div>
+  <div class="info-block">
+    <div class="info-block-title"><span class="icon">🚐</span> Delivery Areas</div>
+    <ul class="delivery-list">
+      <li>Cupertino, San Jose, Santa Clara</li>
+      <li>Sunnyvale, Mountain View, Los Altos</li>
+      <li>Palo Alto, Saratoga, Los Gatos</li>
+      <li>Campbell, Milpitas, Alviso</li>
+      <li>Menlo Park, East Palo Alto, Woodside</li>
+      <li>And 100+ zip codes throughout the Bay Area</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-v">
+        <div class="circle">🌸</div>
+        <span>Cupertino Florist</span>
+      </div>
+      <p class="footer-brand-text">Family-owned and operated since the 1980s, serving the Silicon Valley community with creative floral designs and outstanding personal service. We promise to exceed your expectations.</p>
+      <p class="footer-tagline-v">"Genuine Local Florists — Helping You Express Your Feelings With Flowers!"</p>
+      <div class="footer-contact">
+        <a href="#">📞 888-252-3560</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>By Occasion</h4>
+      <a href="#">Birthday</a>
+      <a href="#">Anniversary</a>
+      <a href="#">Love &amp; Romance</a>
+      <a href="#">Sympathy</a>
+      <a href="#">New Baby</a>
+      <a href="#">Get Well</a>
+      <a href="#">Just Because</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#">Roses</a>
+      <a href="#">Plants</a>
+      <a href="#">Tropicals</a>
+      <a href="#">Gifts</a>
+      <a href="#">Wreaths &amp; Sprays</a>
+      <a href="#">Casket Sprays</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">FAQ</a>
+      <a href="#">Join Email List</a>
+      <a href="#">Sign In</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Cupertino Florist, Inc. · 7289 Coronado Dr, San Jose, CA 95129</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

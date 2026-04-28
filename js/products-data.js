@@ -9,7 +9,7 @@ window.PRODUCTS = [
   {
     id: 'VAL100',
     name: 'With All My Heart',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\VAL100170170',
+    img: './images/other_products_VAL100170170.jpg',
     categories: ['birthday', 'love-romance', 'anniversary'],
     prices: { s: 95, m: 120, l: 140 },
     priceLabel: '$95',
@@ -19,7 +19,7 @@ window.PRODUCTS = [
   {
     id: 'PHALE01',
     name: 'Blooming Butterfly Orchids',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\PHALE01170170',
+    img: './images/other_products_PHALE01170170.jpg',
     categories: ['birthday', 'get-well', 'plants'],
     prices: { s: 75, m: 90, l: 120 },
     priceLabel: '$75',
@@ -29,7 +29,7 @@ window.PRODUCTS = [
   {
     id: 'TROP07',
     name: 'Fantastic Tropicals',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\TROP07170170',
+    img: './images/other_products_TROP07170170.jpg',
     categories: ['birthday', 'tropicals', 'any-occasion'],
     prices: { s: 90, m: 100, l: 120 },
     priceLabel: '$90',
@@ -39,7 +39,7 @@ window.PRODUCTS = [
   {
     id: 'TFWEB329',
     name: "Teleflora's Party Perfect",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\19101712439756682170170',
+    img: './images/TEL_19101712439756682170170.jpg',
     categories: ['birthday', 'congratulations'],
     prices: { s: 70, m: 75, l: 95 },
     priceLabel: '$70',
@@ -50,7 +50,7 @@ window.PRODUCTS = [
   {
     id: 'EV84-11',
     name: 'Happy Birthday Basket',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV84-11170170',
+    img: './images/LAFS_EV84-11170170.jpg',
     categories: ['birthday'],
     prices: { s: 65, m: 80, l: 100 },
     priceLabel: '$65',
@@ -60,7 +60,7 @@ window.PRODUCTS = [
   {
     id: 'EV83-11',
     name: "Here's The Party!",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV83-11170170',
+    img: './images/LAFS_EV83-11170170.jpg',
     categories: ['birthday', 'congratulations'],
     prices: { s: 70, m: 85, l: 110 },
     priceLabel: '$70',
@@ -72,7 +72,7 @@ window.PRODUCTS = [
   {
     id: 'EV100-11',
     name: 'The Perfect Dozen',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV100-11170170',
+    img: './images/LAFS_EV100-11170170.jpg',
     categories: ['love-romance', 'roses', 'anniversary'],
     prices: { s: 130, m: 160, l: 200 },
     priceLabel: '$130',
@@ -83,7 +83,7 @@ window.PRODUCTS = [
   {
     id: 'TF16-3',
     name: 'Passionate Reds',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\1709144456682170170',
+    img: './images/TEL_1709144456682170170.jpg',
     categories: ['love-romance', 'roses'],
     prices: { s: 70, m: 85, l: 110 },
     priceLabel: '$70',
@@ -94,7 +94,7 @@ window.PRODUCTS = [
   {
     id: 'LOC-1076',
     name: 'Two Dozen Roses',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\LOC-10762170170',
+    img: './images/LAFS_LOC-10762170170.jpg',
     categories: ['love-romance', 'roses'],
     prices: { s: 225, m: 275, l: 325 },
     priceLabel: '$225',
@@ -105,7 +105,7 @@ window.PRODUCTS = [
   {
     id: 'LOC-1077',
     name: 'Passionately Pink Roses',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\LOC-10772170170',
+    img: './images/LAFS_LOC-10772170170.jpg',
     categories: ['love-romance', 'roses'],
     prices: { s: 120, m: 150, l: 180 },
     priceLabel: '$120',
@@ -115,7 +115,7 @@ window.PRODUCTS = [
   {
     id: 'EV104-11',
     name: 'The Boxed Dozen',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV104-11170170',
+    img: './images/LAFS_EV104-11170170.jpg',
     categories: ['love-romance', 'roses'],
     prices: { s: 130, m: 155, l: 185 },
     priceLabel: '$130',
@@ -128,7 +128,7 @@ window.PRODUCTS = [
   {
     id: 'T103-1A',
     name: 'Regal Orchids',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\T103-1A170170',
+    img: './images/other_products_T103-1A170170.jpg',
     categories: ['anniversary', 'plants'],
     prices: { s: 130, m: 160, l: 200 },
     priceLabel: '$130',
@@ -138,7 +138,7 @@ window.PRODUCTS = [
   {
     id: 'TF118-1',
     name: 'Garden Centerpiece',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\440901444456682170170',
+    img: './images/TEL_440901444456682170170.jpg',
     categories: ['anniversary', 'any-occasion'],
     prices: { s: 75, m: 90, l: 115 },
     priceLabel: '$75',
@@ -149,7 +149,7 @@ window.PRODUCTS = [
   {
     id: 'EV104-21',
     name: 'Wrapped In Love',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV104-21170170',
+    img: './images/LAFS_EV104-21170170.jpg',
     categories: ['anniversary', 'love-romance', 'roses'],
     prices: { s: 125, m: 150, l: 180 },
     priceLabel: '$125',
@@ -161,7 +161,7 @@ window.PRODUCTS = [
   {
     id: 'EV94-11',
     name: 'Baby Blue Basket',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV94-11170170',
+    img: './images/LAFS_EV94-11170170.jpg',
     categories: ['new-baby'],
     prices: { s: 75, m: 90, l: 110 },
     priceLabel: '$75',
@@ -171,7 +171,7 @@ window.PRODUCTS = [
   {
     id: 'EV94-21',
     name: 'Her First Flowers',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV94-21170170',
+    img: './images/LAFS_EV94-21170170.jpg',
     categories: ['new-baby'],
     prices: { s: 95, m: 115, l: 140 },
     priceLabel: '$95',
@@ -182,7 +182,7 @@ window.PRODUCTS = [
   {
     id: 'TF19-2',
     name: "Teleflora's Bear Hug with Pink Roses",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\1009194456682170170',
+    img: './images/TEL_1009194456682170170.jpg',
     categories: ['new-baby'],
     prices: { s: 65, m: 80, l: 100 },
     priceLabel: '$65',
@@ -193,7 +193,7 @@ window.PRODUCTS = [
   {
     id: 'TF48-3',
     name: 'Posy Basket',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\1709019456682170170',
+    img: './images/TEL_1709019456682170170.jpg',
     categories: ['new-baby', 'get-well', 'any-occasion'],
     prices: { s: 75, m: 90, l: 110 },
     priceLabel: '$75',
@@ -206,7 +206,7 @@ window.PRODUCTS = [
   {
     id: 'SPRAY_LAV',
     name: 'Standing Spray Lavender',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\SPRAY%20LAV170170',
+    img: './images/other_products_SPRAY LAV170170.jpg',
     categories: ['sympathy', 'standing-sprays'],
     prices: { s: 300, m: 375, l: 450 },
     priceLabel: '$300',
@@ -216,7 +216,7 @@ window.PRODUCTS = [
   {
     id: 'COMBO3',
     name: 'Standing Wreath & Spray',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\COMBO3170170',
+    img: './images/other_products_COMBO3170170.jpg',
     categories: ['sympathy', 'wreaths-hearts-crosses'],
     prices: { s: 425, m: 500, l: 600 },
     priceLabel: '$425',
@@ -226,7 +226,7 @@ window.PRODUCTS = [
   {
     id: 'CC3',
     name: 'Casket Cover',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\CC3170170',
+    img: './images/other_products_CC3170170.jpg',
     categories: ['sympathy', 'casket-sprays'],
     prices: { s: 350, m: 425, l: 500 },
     priceLabel: '$350',
@@ -236,7 +236,7 @@ window.PRODUCTS = [
   {
     id: 'HEART_3',
     name: 'Standing Heart',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\HEART%203170170',
+    img: './images/other_products_HEART 3170170.jpg',
     categories: ['sympathy', 'wreaths-hearts-crosses'],
     prices: { s: 375, m: 450, l: 550 },
     priceLabel: '$375',
@@ -248,7 +248,7 @@ window.PRODUCTS = [
   {
     id: 'EV93-21',
     name: 'The Best Medicine',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV93-21170170',
+    img: './images/LAFS_EV93-21170170.jpg',
     categories: ['get-well'],
     prices: { s: 75, m: 90, l: 115 },
     priceLabel: '$75',
@@ -259,7 +259,7 @@ window.PRODUCTS = [
   {
     id: 'EV93-11',
     name: 'Wishing You Well',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV93-11170170',
+    img: './images/LAFS_EV93-11170170.jpg',
     categories: ['get-well'],
     prices: { s: 120, m: 145, l: 170 },
     priceLabel: '$120',
@@ -269,7 +269,7 @@ window.PRODUCTS = [
   {
     id: 'GARDEN01',
     name: 'Blooming Basket Garden',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\GARDEN01170170',
+    img: './images/other_products_GARDEN01170170.jpg',
     categories: ['get-well', 'plants', 'any-occasion'],
     prices: { s: 90, m: 110, l: 135 },
     priceLabel: '$90',
@@ -281,7 +281,7 @@ window.PRODUCTS = [
   {
     id: 'EV103-11',
     name: "Gold 'N' Rosy",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV103-11170170',
+    img: './images/LAFS_EV103-11170170.jpg',
     categories: ['roses', 'love-romance'],
     prices: { s: 200, m: 250, l: 300 },
     priceLabel: '$200',
@@ -292,7 +292,7 @@ window.PRODUCTS = [
   {
     id: 'LOC-1015',
     name: 'A Dozen Pink Roses',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\LOC-10152170170',
+    img: './images/LAFS_LOC-10152170170.jpg',
     categories: ['roses', 'love-romance', 'anniversary'],
     prices: { s: 130, m: 155, l: 180 },
     priceLabel: '$130',
@@ -304,7 +304,7 @@ window.PRODUCTS = [
   {
     id: 'EV108-21',
     name: 'Woodland Mums Planter',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV108-21170170',
+    img: './images/LAFS_EV108-21170170.jpg',
     categories: ['plants', 'any-occasion'],
     prices: { s: 60, m: 75, l: 95 },
     priceLabel: '$60',
@@ -314,7 +314,7 @@ window.PRODUCTS = [
   {
     id: 'T97-1A',
     name: 'Simply Chic Mixed Plant Basket',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\T97-1A170170',
+    img: './images/other_products_T97-1A170170.jpg',
     categories: ['plants', 'get-well', 'any-occasion'],
     prices: { s: 75, m: 90, l: 115 },
     priceLabel: '$75',
@@ -324,7 +324,7 @@ window.PRODUCTS = [
   {
     id: 'T98-2A',
     name: "Teleflora's Opulent Orchids",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\T98-2A170170',
+    img: './images/other_products_T98-2A170170.jpg',
     categories: ['plants', 'anniversary'],
     prices: { s: 50, m: 65, l: 85 },
     priceLabel: '$50',
@@ -335,7 +335,7 @@ window.PRODUCTS = [
   {
     id: 'T104-3A',
     name: 'Amazing Arboricola',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\T104-3A170170',
+    img: './images/other_products_T104-3A170170.jpg',
     categories: ['plants'],
     prices: { s: 65, m: 80, l: 100 },
     priceLabel: '$65',
@@ -347,7 +347,7 @@ window.PRODUCTS = [
   {
     id: 'LEI_10',
     name: 'Pink & White Orchid Lei',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\LEI%2010170170',
+    img: './images/other_products_LEI 10170170.jpg',
     categories: ['gifts', 'tropicals', 'congratulations'],
     prices: { s: 75, m: 90, l: 110 },
     priceLabel: '$75',
@@ -357,7 +357,7 @@ window.PRODUCTS = [
   {
     id: 'LEI_11',
     name: 'White Orchid Lei with Pink Roses',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\LEI%2011170170',
+    img: './images/other_products_LEI 11170170.jpg',
     categories: ['gifts', 'tropicals'],
     prices: { s: 95, m: 115, l: 135 },
     priceLabel: '$95',
@@ -368,7 +368,7 @@ window.PRODUCTS = [
   {
     id: 'LEI_16',
     name: 'Soft Pink Orchid Lei',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\LEI%2016170170',
+    img: './images/other_products_LEI 16170170.jpg',
     categories: ['gifts', 'tropicals', 'congratulations'],
     prices: { s: 75, m: 90, l: 110 },
     priceLabel: '$75',
@@ -378,7 +378,7 @@ window.PRODUCTS = [
   {
     id: 'ORCHID_LEI_2',
     name: 'Purple Orchid Lei with Roses',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\ORCHID%20LEI%202170170',
+    img: './images/other_products_ORCHID LEI 2170170.jpg',
     categories: ['gifts', 'congratulations'],
     prices: { s: 95, m: 115, l: 135 },
     priceLabel: '$95',
@@ -389,7 +389,7 @@ window.PRODUCTS = [
   {
     id: 'PHALE_03',
     name: 'Yellow Butterfly Orchid',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\PHALE%2003170170',
+    img: './images/other_products_PHALE 03170170.jpg',
     categories: ['tropicals', 'plants', 'get-well', 'congratulations'],
     prices: { s: 75, m: 90, l: 115 },
     priceLabel: '$75',
@@ -401,7 +401,7 @@ window.PRODUCTS = [
   {
     id: 'T95-4A',
     name: 'Rainbow Rays Potted Gerbera',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\T95-4A170170',
+    img: './images/other_products_T95-4A170170.jpg',
     categories: ['plants', 'anniversary', 'any-occasion', 'thank-you'],
     prices: { s: 50, m: 65, l: 85 },
     priceLabel: '$50',
@@ -411,7 +411,7 @@ window.PRODUCTS = [
   {
     id: 'TPL06-1A',
     name: 'Forever Yellow Kalanchoes',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=other\\products\\TPL06-1A170170',
+    img: './images/other_products_TPL06-1A170170.jpg',
     categories: ['plants', 'just-because', 'thank-you'],
     prices: { s: 47.50, m: 60, l: 80 },
     priceLabel: '$47.50',
@@ -421,7 +421,7 @@ window.PRODUCTS = [
   {
     id: 'EV112-21',
     name: 'Basket Garden',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV112-21170170',
+    img: './images/LAFS_EV112-21170170.jpg',
     categories: ['plants', 'sympathy-flowers', 'any-occasion'],
     prices: { s: 75, m: 90, l: 110 },
     priceLabel: '$75',
@@ -431,7 +431,7 @@ window.PRODUCTS = [
   {
     id: 'TF3-1',
     name: 'Every Day Counts',
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=TEL\\44091756682170170',
+    img: './images/TEL_44091756682170170.jpg',
     categories: ['congratulations', 'thank-you', 'any-occasion'],
     prices: { s: 130, m: 155, l: 185 },
     priceLabel: '$130',
@@ -442,7 +442,7 @@ window.PRODUCTS = [
   {
     id: 'EV103-11B',
     name: "Gold 'N' Rosy Luxury",
-    img: 'https://www.cupertinoflorist.com/image_serve.aspx?accountname=cupertinoflorist&imageid=LAFS\\EV103-11170170',
+    img: './images/LAFS_EV103-11170170.jpg',
     categories: ['thank-you', 'just-because'],
     prices: { s: 85, m: 100, l: 130 },
     priceLabel: '$85',

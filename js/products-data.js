@@ -73,7 +73,7 @@ window.PRODUCTS = [
     id: 'EV100-11',
     name: 'The Perfect Dozen',
     img: './images/LAFS_EV100-11170170.jpg',
-    categories: ['love-romance', 'roses', 'anniversary'],
+    categories: ['love-romance', 'roses', 'anniversary', 'weddings'],
     prices: { s: 130, m: 160, l: 200 },
     priceLabel: '$130',
     description: 'A classic dozen long-stemmed red roses arranged to perfection — the ultimate romantic gesture.',
@@ -95,7 +95,7 @@ window.PRODUCTS = [
     id: 'LOC-1076',
     name: 'Two Dozen Roses',
     img: './images/LAFS_LOC-10762170170.jpg',
-    categories: ['love-romance', 'roses'],
+    categories: ['love-romance', 'roses', 'weddings'],
     prices: { s: 225, m: 275, l: 325 },
     priceLabel: '$225',
     description: 'Go above and beyond with two dozen gorgeous red roses for that truly special someone.',
@@ -106,7 +106,7 @@ window.PRODUCTS = [
     id: 'LOC-1077',
     name: 'Passionately Pink Roses',
     img: './images/LAFS_LOC-10772170170.jpg',
-    categories: ['love-romance', 'roses'],
+    categories: ['love-romance', 'roses', 'weddings'],
     prices: { s: 120, m: 150, l: 180 },
     priceLabel: '$120',
     description: 'Soft, romantic pink roses arranged beautifully — a tender expression of affection.',
@@ -129,7 +129,7 @@ window.PRODUCTS = [
     id: 'T103-1A',
     name: 'Regal Orchids',
     img: './images/other_products_T103-1A170170.jpg',
-    categories: ['anniversary', 'plants'],
+    categories: ['anniversary', 'plants', 'weddings'],
     prices: { s: 130, m: 160, l: 200 },
     priceLabel: '$130',
     description: 'Stately, elegant orchid plants that make a lasting impression for milestone anniversaries.',
@@ -394,6 +394,50 @@ window.PRODUCTS = [
     prices: { s: 75, m: 90, l: 115 },
     priceLabel: '$75',
     description: 'Cheerful yellow phalaenopsis orchids brightening any room with their delicate beauty.',
+    delivery: 'Hand Delivery'
+  },
+
+  /* ── WEDDINGS ─────────────────────────────────────────── */
+  {
+    id: 'WED-BOUQ-1',
+    name: 'Bridal Bouquet',
+    img: './images/LAFS_LOC-10772170170.jpg',
+    categories: ['weddings'],
+    prices: { s: 125, m: 175, l: 250 },
+    priceLabel: '$125',
+    description: 'A romantic cascade of soft pink roses and complementary blooms, hand-crafted to be everything a bride could imagine on her special day.',
+    delivery: 'Hand Delivery',
+    badge: 'Popular'
+  },
+  {
+    id: 'WED-CENTER-1',
+    name: 'Wedding Reception Centerpiece',
+    img: './images/LAFS_EV103-11170170.jpg',
+    categories: ['weddings'],
+    prices: { s: 150, m: 200, l: 275 },
+    priceLabel: '$150',
+    description: 'An opulent table centerpiece in warm gold and rose tones, designed to create an unforgettable atmosphere at your reception.',
+    delivery: 'Hand Delivery',
+    badge: 'Premium'
+  },
+  {
+    id: 'WED-ALTAR-1',
+    name: 'Ceremony Altar Arrangement',
+    img: './images/LAFS_EV93-11170170.jpg',
+    categories: ['weddings'],
+    prices: { s: 200, m: 275, l: 375 },
+    priceLabel: '$200',
+    description: 'A grand, lush arrangement designed to frame the altar or ceremony arch — making your vows as beautiful as the moment.',
+    delivery: 'Hand Delivery'
+  },
+  {
+    id: 'WED-CORSAGE-1',
+    name: 'White Rose Corsage',
+    img: './images/LAFS_EV104-11170170.jpg',
+    categories: ['weddings'],
+    prices: { s: 37.50, m: 45, l: 55 },
+    priceLabel: '$37.50',
+    description: 'A delicate wrist or pin corsage of white roses, perfect for mothers of the bride and groom, bridesmaids, or any wedding guest of honor.',
     delivery: 'Hand Delivery'
   },
 
